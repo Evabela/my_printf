@@ -1,0 +1,35 @@
+##
+## EPITECH PROJECT, 2025
+## Makefile
+## File description:
+## Makefile
+##
+
+SRC =	my_printf.c
+
+OBJ =	$(SRC:.c=.o)
+
+NAME =	cat
+
+all:	$(NAME)
+
+$(NAME):	$(OBJ)
+	cd ../lib/my && $(MAKE)
+	epiclang -o $(NAME) $(OBJ) -L../lib -lmy
+
+tests_run:
+	epiclang -o unit_tests --coverage -lcriterion -lgcov ./unit_tests.c my_printf.c -L../lib -lmy
+	./unit_tests
+	gcovr --gcov-executable "llvm-cov-20 gcov"
+
+clean:
+	rm -f *.o
+	rm -f *.gcno
+	rm -f *.gcda
+	rm -f '#*#'
+	rm -f *~
+
+fclean: clean
+	rm -f $(NAME)
+
+re:	fclean all
