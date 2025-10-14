@@ -5,7 +5,10 @@
 ## Makefile
 ##
 
-SRC =	my_printf.c
+SRC =	my_printf.\
+	my_putchar.c \
+	my_put_nbr.c \
+	my_putstr.c
 
 OBJ =	$(SRC:.c=.o)
 
@@ -20,6 +23,8 @@ $(NAME):	$(OBJ)
 tests_run:
 	epiclang -o unit_tests --coverage -lcriterion -lgcov ./unit_tests.c my_printf.c -L../lib -lmy
 	./unit_tests
+
+gcovrex:	tests_run
 	gcovr --gcov-executable "llvm-cov-20 gcov"
 
 clean:
