@@ -6,4 +6,4 @@
 - 🔀 (twisted_rightwards_arrows) : merge branches
 - ✨ (sparkles) : add new features
 - 🙈 (see_no_evil) : add or modify a .gitignore file
-- ➕ (heavy_plus_sign) : add or modify a function
+- ♻️ (recycle) : add or modify a functio
