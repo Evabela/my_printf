@@ -1,0 +1,4 @@
+*.o
+*.sh
+a.out
+unit_tests
