@@ -5,7 +5,10 @@
 ## Makefile
 ##
 
-SRC =	my_printf.c
+SRC =	my_printf.\
+	my_putchar.c \
+	my_put_nbr.c \
+	my_putstr.c
 
 OBJ =	$(SRC:.c=.o)
 
@@ -17,6 +20,13 @@ $(NAME):	$(OBJ)
 	cd ../lib/my && $(MAKE)
 	epiclang -o $(NAME) $(OBJ) -L../lib -lmy
 
+tests_run:
+	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_my_printf.c my_printf.c -L../lib -lmy
+	./unit_tests
+
+gcovrex:	tests_run
+	gcovr --gcov-executable "llvm-cov-20 gcov"
+
 clean:
 	rm -f *.o
 	rm -f *.gcno
@@ -26,10 +36,5 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-
-tests_run:	clean
-	epiclang -o unit_test --coverage -lcriterion -lgcov ./tests/test_my_printf.c my_printf.c -L./lib -lmy
-	./unit_test
-	gcovr --gcov-executable "llvm-cov-20 gcov"
 
 re:	fclean all
