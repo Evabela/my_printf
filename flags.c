@@ -1,9 +1,10 @@
-/*                                                                                                                                                                                            
-** EPITECH PROJECT, 2025                                                                                                                                                                      
-** flags                                                                                                                                                                                      
-** File description:                                                                                                                                                                          
-** All flags for the mini_printf function                                                                                                                                                     
+/*
+** EPITECH PROJECT, 2025
+** flags
+** File description:
+** flags for the printf project
 */
+
 #include "include/my.h"
 #include <stdarg.h>
 
