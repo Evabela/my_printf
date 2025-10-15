@@ -13,7 +13,7 @@ int my_printf(const char *format, ...)
     va_list list;
     int nb_char = 0;
     int i = 0;
-    linked_list ptrs_t; // sera initialisée plus tard
+    linked_list chained_list = initialize(); // sera initialisée plus tard
 
     va_start(list, format);
     if (format[0] == 0){
@@ -22,10 +22,10 @@ int my_printf(const char *format, ...)
     }
     while (format[i] != 0){
         if (format[i] == '%'){
-            while (format[i + 1] != ptrs_t->letter && element != 0)
-                ptrs_t = ptrs_t->next;
-            if (ptrs_t != 0){
-                nb_char += element->ptr;
+            while (format[i + 1] != chained_list.letter && chained_list != NULL)
+                chained_list = chained_list->next;
+            if (chained_list != NULL){
+                nb_char += chained_list.ptr; // pas compris ça
             } else {
                 nb_char++;
                 my_putchar('%');
