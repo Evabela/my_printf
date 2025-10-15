@@ -33,7 +33,7 @@ int flag_int(int j, const char *format, va_list list, int nb_char)
 {
     int int_args = 0;
 
-    if (format[j] == 'd' || format[j] == 'i'){
+    if (format[j] == 'd'){
         int_args = va_arg(list, int);
         my_put_nbr(int_args);
         nb_char += my_intlen(int_args);
