@@ -4,7 +4,6 @@
 ** File description:
 ** give length
 */
-#include "inlude/my.h"
 
 int my_strlen(char const *str)
 {
