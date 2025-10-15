@@ -24,37 +24,33 @@ int diff_operators(char **argv, int value1, int value2);
 int compute(int argc, char **argv);
 
 int display_count(const char *format, va_list list, int nb_char);
-int flag_char(int j, const char *format, va_list list, int nb_char);
-int flag_str(int j, const char *format, va_list list, int nb_char);
-int flag_int(int j, const char *format, va_list list, int nb_char);
-int flag_percent(int j, const char *format, va_list list, int nb_char);
 void my_put_error(void);
 int my_printf(const char *format, ...);
 
-int flag_d(int j, const char *format, va_list list, int nb_char);
-int flag_percent(int j, const char *format, va_list list, int nb_char);
-int flag_c(int j, const char *format, va_list list, int nb_char);
-int flag_s(int j, const char *format, va_list list, int nb_char);
-int flag_i(int j, const char *format, va_list list, int nb_char);
-int flag_o(int j, const char *format, va_list list, int nb_char);
-int flag_x(int j, const char *format, va_list list, int nb_char);
-int flag_X(int j, const char *format, va_list list, int nb_char);
-int flag_u(int j, const char *format, va_list list, int nb_char);
-int flag_f(int j, const char *format, va_list list, int nb_char);
-int flag_F(int j, const char *format, va_list list, int nb_char);
-int flag_e(int j, const char *format, va_list list, int nb_char);
-int flag_E(int j, const char *format, va_list list, int nb_char);
-int flag_g(int j, const char *format, va_list list, int nb_char);
-int flag_G(int j, const char *format, va_list list, int nb_char);
-int flag_p(int j, const char *format, va_list list, int nb_char);
-int flag_n(int j, const char *format, va_list list, int nb_char);
-int flag_a(int j, const char *format, va_list list, int nb_char);
-int flag_A(int j, const char *format, va_list list, int nb_char);
+int flag_d(va_list list, int nb_char);
+int flag_percent(va_list list, int nb_char);
+int flag_c(va_list list, int nb_char);
+int flag_s(va_list list, int nb_char);
+int flag_i(va_list list, int nb_char);
+int flag_o(va_list list, int nb_char);
+int flag_x(va_list list, int nb_char);
+int flag_X(va_list list, int nb_char);
+int flag_u(va_list list, int nb_char);
+int flag_f(va_list list, int nb_char);
+int flag_F(va_list list, int nb_char);
+int flag_e(va_list list, int nb_char);
+int flag_E(va_list list, int nb_char);
+int flag_g(va_list list, int nb_char);
+int flag_G(va_list list, int nb_char);
+int flag_p(va_list list, int nb_char);
+int flag_n(va_list list, int nb_char);
+int flag_a(va_list list, int nb_char);
+int flag_A(va_list list, int nb_char);
 
 typedef struct list
 {
     char letter;
-    int (*ptr)(int, const char *, va_list, int);
+    int (*ptr)(va_list, int);
     struct list *next;
 } linked_list_t;
 
