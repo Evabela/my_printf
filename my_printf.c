@@ -12,6 +12,7 @@ int my_printf(const char *format, ...)
 {
     va_list list;
     int nb_char = 0;
+    int i = 0;
     linked_list ptrs_t; // sera initialisée plus tard
 
     va_start(list, format);
