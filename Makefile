@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-SRC =	my_printf.\
+SRC =	my_printf.c \
 	flags.c \
 	my_putchar.c \
 	my_put_nbr.c \
@@ -25,7 +25,7 @@ $(NAME):	$(OBJ)
 	epiclang -o $(NAME) $(OBJ)
 
 tests_run:
-	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_my_printf.c my_printf.c
+	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_my_printf.c $(SRC)
 	./unit_tests
 
 gcovrex:	tests_run
