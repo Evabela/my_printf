@@ -8,7 +8,7 @@
 #include "include/my.h"
 #include <stdarg.h>
 
-int flag_char(int j, const char *format, va_list list, int nb_char)
+int flag_c(int j, const char *format, va_list list, int nb_char)
 {
     if (format[j] == 'c'){
         my_putchar((char) va_arg(list, int));
@@ -17,7 +17,7 @@ int flag_char(int j, const char *format, va_list list, int nb_char)
     return nb_char;
 }
 
-int flag_str(int j, const char *format, va_list list, int nb_char)
+int flag_s(int j, const char *format, va_list list, int nb_char)
 {
     char *str;
 
@@ -29,7 +29,7 @@ int flag_str(int j, const char *format, va_list list, int nb_char)
     return nb_char;
 }
 
-int flag_int(int j, const char *format, va_list list, int nb_char)
+int flag_i(int j, const char *format, va_list list, int nb_char)
 {
     int int_args = 0;
 
