@@ -21,7 +21,7 @@ int flag_s(va_list list, int nb_char)
 
     str = va_arg(list, char *);
     my_putstr(str);
-    nb_char += my_strlen(str); 
+    nb_char += my_strlen(str);
     return nb_char;
 }
 
