@@ -6,22 +6,26 @@
 ##
 
 SRC =	my_printf.\
+	flags.c \
 	my_putchar.c \
 	my_put_nbr.c \
+	my_strlen.c \
+	my_intlen.c \
+	my_put_error.c \
 	my_putstr.c
 
 OBJ =	$(SRC:.c=.o)
 
-NAME =	cat
+NAME =	libmy.a
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	cd ../lib/my && $(MAKE)
-	epiclang -o $(NAME) $(OBJ) -L../lib -lmy
+	ar rc $(NAME) $(OBJ)
+	epiclang -o $(NAME) $(OBJ)
 
 tests_run:
-	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_my_printf.c my_printf.c -L../lib -lmy
+	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_my_printf.c my_printf.c
 	./unit_tests
 
 gcovrex:	tests_run
