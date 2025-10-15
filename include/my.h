@@ -13,6 +13,7 @@ void my_putchar(char c);
 int my_put_nbr(int nb);
 int my_putstr(char const *str);
 int my_strlen(char const *str);
+int my_intlen(int nb);
 
 void my_print_except(void);
 int recursive(int n, int *count);
