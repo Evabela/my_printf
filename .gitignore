@@ -3,4 +3,5 @@
 a.out
 unit_tests
 #*#
-~*
+*~
+printf_tests.c
