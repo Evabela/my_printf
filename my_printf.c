@@ -13,7 +13,7 @@ int my_printf(const char *format, ...)
     va_list list;
     int nb_char = 0;
     int i = 0;
-    linked_list chained_list = initialize(); // sera initialisée plus tard
+    linked_list_t chained_list = initialize(); // sera initialisée plus tard
 
     va_start(list, format);
     if (format[0] == 0){
