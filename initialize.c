@@ -8,7 +8,7 @@
 #include "./include/my.h"
 
 int put_in_list(linked_list_t **list, int *tab, int (*tab_ptr[11])
-    (int, const char *, va_list, int), int i)
+    (va_list, int), int i)
 {
     linked_list_t *elem = malloc(sizeof(linked_list_t));
 
@@ -20,17 +20,17 @@ int put_in_list(linked_list_t **list, int *tab, int (*tab_ptr[11])
 
 void create_list1(linked_list_t **list)
 {
-    int (*ptr_d)(int, const char *, va_list, int) = &flag_d;
-    int (*ptr_percent)(int, const char *, va_list, int) = &flag_percent;
-    int (*ptr_c)(int, const char *, va_list, int) = &flag_c;
-    int (*ptr_s)(int, const char *, va_list, int) = &flag_s;
-    int (*ptr_i)(int, const char *, va_list, int) = &flag_i;
-    int (*ptr_o)(int, const char *, va_list, int) = &flag_o;
-    int (*ptr_x)(int, const char *, va_list, int) = &flag_x;
-    int (*ptr_X)(int, const char *, va_list, int) = &flag_X;
-    int (*ptr_u)(int, const char *, va_list, int) = &flag_u;
+    int (*ptr_d)(va_list, int) = &flag_d;
+    int (*ptr_percent)(va_list, int) = &flag_percent;
+    int (*ptr_c)(va_list, int) = &flag_c;
+    int (*ptr_s)(va_list, int) = &flag_s;
+    int (*ptr_i)(va_list, int) = &flag_i;
+    int (*ptr_o)(va_list, int) = &flag_o;
+    int (*ptr_x)(va_list, int) = &flag_x;
+    int (*ptr_X)(va_list, int) = &flag_X;
+    int (*ptr_u)(va_list, int) = &flag_u;
     int tab[9] = {'d', '%', 'c', 's', 'i', 'o', 'x', 'X', 'u'};
-    int (*tab_ptr[9])(int, const char *, va_list, int) = {ptr_d, ptr_percent,
+    int (*tab_ptr[10])(va_list, int) = {ptr_d, ptr_percent,
         ptr_c, ptr_s, ptr_i, ptr_o, ptr_x, ptr_X, ptr_u};
 
     for (int i = 0; i < 9; i++)
@@ -39,18 +39,18 @@ void create_list1(linked_list_t **list)
 
 void create_list2(linked_list_t **list)
 {
-    int (*ptr_f)(int, const char *, va_list, int) = &flag_f;
-    int (*ptr_F)(int, const char *, va_list, int) = &flag_F;
-    int (*ptr_e)(int, const char *, va_list, int) = &flag_e;
-    int (*ptr_E)(int, const char *, va_list, int) = &flag_E;
-    int (*ptr_g)(int, const char *, va_list, int) = &flag_g;
-    int (*ptr_G)(int, const char *, va_list, int) = &flag_G;
-    int (*ptr_p)(int, const char *, va_list, int) = &flag_p;
-    int (*ptr_n)(int, const char *, va_list, int) = &flag_n;
-    int (*ptr_a)(int, const char *, va_list, int) = &flag_a;
-    int (*ptr_A)(int, const char *, va_list, int) = &flag_A;
+    int (*ptr_f)(va_list, int) = &flag_f;
+    int (*ptr_F)(va_list, int) = &flag_F;
+    int (*ptr_e)(va_list, int) = &flag_e;
+    int (*ptr_E)(va_list, int) = &flag_E;
+    int (*ptr_g)(va_list, int) = &flag_g;
+    int (*ptr_G)(va_list, int) = &flag_G;
+    int (*ptr_p)(va_list, int) = &flag_p;
+    int (*ptr_n)(va_list, int) = &flag_n;
+    int (*ptr_a)(va_list, int) = &flag_a;
+    int (*ptr_A)(va_list, int) = &flag_A;
     int tab[10] = {'f', 'F', 'e', 'E', 'g', 'G', 'p', 'n', 'a', 'A'};
-    int (*tab_ptr[11])(int, const char *, va_list, int) = {ptr_f, ptr_F,
+    int (*tab_ptr[11])(va_list, int) = {ptr_f, ptr_F,
         ptr_e, ptr_E, ptr_g, ptr_G, ptr_p, ptr_n, ptr_a, ptr_A};
 
     for (int i = 0; i < 10; i++)
