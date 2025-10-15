@@ -44,7 +44,7 @@ int flag_int(int j, const char *format, va_list list, int nb_char)
 int flag_percent(int j, const char *format, va_list list, int nb_char)
 {
     if (format[j] == '%'){
-	my_putchar('%');
+        my_putchar('%');
         nb_char++;
     }
     return nb_char;
