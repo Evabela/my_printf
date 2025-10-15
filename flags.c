@@ -8,14 +8,14 @@
 #include "include/my.h"
 #include <stdarg.h>
 
-int flag_c(int j, const char *format, va_list list, int nb_char)
+int flag_c(va_list list, int nb_char)
 {
     my_putchar((char) va_arg(list, int));
     nb_char++;
     return nb_char;
 }
 
-int flag_s(int j, const char *format, va_list list, int nb_char)
+int flag_s(va_list list, int nb_char)
 {
     char *str;
 
@@ -25,7 +25,7 @@ int flag_s(int j, const char *format, va_list list, int nb_char)
     return nb_char;
 }
 
-int flag_i(int j, const char *format, va_list list, int nb_char)
+int flag_i(va_list list, int nb_char)
 {
     int int_args = 0;
 
@@ -35,7 +35,7 @@ int flag_i(int j, const char *format, va_list list, int nb_char)
     return nb_char;
 }
 
-int flag_percent(int j, const char *format, va_list list, int nb_char)
+int flag_percent(va_list list, int nb_char)
 {
     my_putchar('%');
     nb_char++;
