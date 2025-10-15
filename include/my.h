@@ -31,4 +31,11 @@ int flag_percent(int j, const char *format, va_list list, int nb_char);
 void my_put_error(void);
 int my_printf(const char *format, ...);
 
+typedef struct linked_list
+{
+    char letter;
+    int ptr;
+    struct linked_list *next;
+} linked_list_t;
+
 #endif /* !MY_H_ */
