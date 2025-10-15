@@ -31,11 +31,31 @@ int flag_percent(int j, const char *format, va_list list, int nb_char);
 void my_put_error(void);
 int my_printf(const char *format, ...);
 
-typedef struct linked_list
+int flag_d(int j, const char *format, va_list list, int nb_char);
+int flag_percent(int j, const char *format, va_list list, int nb_char);
+int flag_c(int j, const char *format, va_list list, int nb_char);
+int flag_s(int j, const char *format, va_list list, int nb_char);
+int flag_i(int j, const char *format, va_list list, int nb_char);
+int flag_o(int j, const char *format, va_list list, int nb_char);
+int flag_x(int j, const char *format, va_list list, int nb_char);
+int flag_X(int j, const char *format, va_list list, int nb_char);
+int flag_u(int j, const char *format, va_list list, int nb_char);
+int flag_f(int j, const char *format, va_list list, int nb_char);
+int flag_F(int j, const char *format, va_list list, int nb_char);
+int flag_e(int j, const char *format, va_list list, int nb_char);
+int flag_E(int j, const char *format, va_list list, int nb_char);
+int flag_g(int j, const char *format, va_list list, int nb_char);
+int flag_G(int j, const char *format, va_list list, int nb_char);
+int flag_p(int j, const char *format, va_list list, int nb_char);
+int flag_n(int j, const char *format, va_list list, int nb_char);
+int flag_a(int j, const char *format, va_list list, int nb_char);
+int flag_A(int j, const char *format, va_list list, int nb_char);
+
+typedef struct list
 {
     char letter;
-    int ptr;
-    struct linked_list *next;
+    int (*ptr)(int, const char *, va_list, int);
+    struct list *next;
 } linked_list_t;
 
 #endif /* !MY_H_ */
