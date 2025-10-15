@@ -8,60 +8,43 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-int contains(char arg_format)
+int display_count(const char *format, va_list list, int nb_char)
 {
-    char str[6] = {'d', 'c', 'i', 's', '%', '\0'};
+    int i = 0;
+    int temp = 0;
 
-    for (int i = 0; str[i] != '\0'; i++)
-        if (arg_format == str[i])
-            return 1;
-    return -1;
-}
-
-void display_argument(char const *format, va_list list, int i, int *nbr)
-{
-    char arg_format = format[i + 1];
-    int len = 0;
-
-    if (arg_format == 'd' || arg_format == 'i') {
-        len = my_put_nbr(va_arg(list, int));
-        *nbr = *nbr + len;
-    }
-    if (arg_format == 's') {
-        len = my_putstr(va_arg(list, char*));
-        *nbr = *nbr + len;
-    }
-    if (arg_format == 'c')
-        my_putchar(va_arg(list, int));
-    if (arg_format == '%')
-        my_putchar('%');
-    if (contains(arg_format) == -1) {
-        my_putchar('%');
-        my_putchar(arg_format);
-    }
-}
-
-void display_string(char const *format, va_list list, int *nbr)
-{
-    for (int i = 0; format[i] != '\0'; i++) {
-        if (format[i] == '%') {
-            display_argument(format, list, i, nbr);
+    while (format[i] != 0){
+        temp = nb_char;
+        if (format[i] == '%'){
+            nb_char = flag_str(i + 1, format, list, nb_char);
+            nb_char = flag_int(i + 1, format, list, nb_char);
+            nb_char = flag_char(i + 1, format, list, nb_char);
+            nb_char = flag_percent(i + 1, format, list, nb_char);
             i++;
-            *nbr = *nbr + 1;
         } else {
             my_putchar(format[i]);
-            *nbr = *nbr + 1;
+            nb_char++;
         }
+        if (nb_char == temp)
+            return -1;
+        i++;
     }
+    return nb_char;
 }
 
 int mini_printf(const char *format, ...)
 {
     va_list list;
-    int nbr = 0;
+    int res = 0;
 
     va_start(list, format);
-    display_string(format, list, &nbr);
+    if (format[0] == 0){
+        my_put_error();
+        return -1;
+    }
+    res = display_count(format, list, res);
+    if (res == -1)
+        my_put_error();
     va_end(list);
-    return (nbr);
+    return res;
 }
