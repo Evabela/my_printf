@@ -34,6 +34,7 @@ int compute(int argc, char **argv);
 void display_string(char const *format, va_list list, int *nbr);
 int display_arguments(char const *format, va_list list, int i);
 int mini_printf(const char *format, ...);
-int check_errors(char const *format, va_list list);
+int contains(char arg_format);
+int my_printf(const char *format, ...);
 
 #endif /* !MY_H_ */

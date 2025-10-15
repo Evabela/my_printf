@@ -55,7 +55,7 @@ void display_string(char const *format, va_list list, int *nbr)
     }
 }
 
-int mini_printf(const char *format, ...)
+int my_printf(const char *format, ...)
 {
     va_list list;
     int nbr = 0;
