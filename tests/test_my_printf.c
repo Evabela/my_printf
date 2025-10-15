@@ -20,7 +20,7 @@ Test(my_printf, one_argument)
 
     cr_assert_eq(my_printf("Hello %s", str), printf("Hello %s", str));
 }
-/*
+
 Test(my_printf, more_argument)
 {
     int nb = 21;
@@ -48,4 +48,3 @@ Test(mini_printf, percentage_alone)
 
     cr_assert_eq(my_printf("The word %%%s%% has % characters.\n", str), printf("The word %%%s%% has % characters.\n", str));
 }
-*/
