@@ -18,10 +18,6 @@ int my_intlen(int nb);
 void my_print_except(void);
 int recursive(int n, int *count);
 char get_sign_nb(int n);
-int my_get_sign(char const *str, int i);
-int get_sign(char const *str, int i);
-int diff_operators(char **argv, int value1, int value2);
-int compute(int argc, char **argv);
 
 int display_count(const char *format, va_list list, int nb_char);
 void my_put_error(void);
