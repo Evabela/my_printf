@@ -4,6 +4,7 @@
 ** File description:
 ** Display an error on his output
 */
+#include <unistd.h>
 
 void my_put_error(void)
 {
