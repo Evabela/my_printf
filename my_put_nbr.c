@@ -14,7 +14,7 @@ char get_sign_nb(int n)
         return (0);
 }
 
-int recursive(int n, int *count)
+int recursive(int n)
 {
     int rest = 0;
     int rest_str = 0;
@@ -22,12 +22,11 @@ int recursive(int n, int *count)
     if (n != 0) {
         rest = n % 10;
         n = n / 10;
-        *count = *count + 1;
-        recursive(n, count);
+        recursive(n);
         rest_str = rest + '0';
         my_putchar(rest_str);
     }
-    return (*count);
+    return 0;
 }
 
 void my_print_except(void)
@@ -48,7 +47,6 @@ void my_print_except(void)
 int my_put_nbr(int n)
 {
     int sign = 0;
-    int count = 0;
 
     if (n == (-2147483648)) {
         my_print_except();
@@ -61,9 +59,9 @@ int my_put_nbr(int n)
         if (n == 0)
             my_putchar('0');
         else
-            count = recursive(n, &count);
+            recursive(n);
     }
-    return (count);
+    return 0;
 }
 
 int my_put_nbr_u(unsigned int nb)
