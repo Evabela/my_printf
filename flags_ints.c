@@ -16,3 +16,18 @@ int flag_u(va_list list, int nb_char)
     my_put_nbr_u(nb);
     return nb_char;
 }
+
+int flag_i(va_list list, int nb_char)
+{
+    return nb_char;
+}
+
+int flag_f(va_list list, int nb_char)
+{
+    return nb_char;
+}
+
+int flag_fu(va_list list, int nb_char)
+{
+    return nb_char;
+}
