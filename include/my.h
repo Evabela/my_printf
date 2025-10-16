@@ -32,18 +32,18 @@ int flag_s(va_list list, int nb_char);
 int flag_i(va_list list, int nb_char);
 int flag_o(va_list list, int nb_char);
 int flag_x(va_list list, int nb_char);
-int flag_X(va_list list, int nb_char);
+int flag_xu(va_list list, int nb_char);
 int flag_u(va_list list, int nb_char);
 int flag_f(va_list list, int nb_char);
-int flag_F(va_list list, int nb_char);
+int flag_fu(va_list list, int nb_char);
 int flag_e(va_list list, int nb_char);
-int flag_E(va_list list, int nb_char);
+int flag_eu(va_list list, int nb_char);
 int flag_g(va_list list, int nb_char);
-int flag_G(va_list list, int nb_char);
+int flag_gu(va_list list, int nb_char);
 int flag_p(va_list list, int nb_char);
 int flag_n(va_list list, int nb_char);
 int flag_a(va_list list, int nb_char);
-int flag_A(va_list list, int nb_char);
+int flag_au(va_list list, int nb_char);
 
 typedef struct list
 {
