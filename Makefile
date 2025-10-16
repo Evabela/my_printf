@@ -6,6 +6,9 @@
 ##
 
 SRC =	my_printf.c \
+	initialize.c \
+	flags_hexa.c \
+	flags_ints.c \
 	flags.c \
 	my_putchar.c \
 	my_put_nbr.c \
