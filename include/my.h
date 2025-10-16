@@ -23,6 +23,9 @@ char get_sign_nb(int n);
 int display_count(const char *format, va_list list, int nb_char);
 void my_put_error(void);
 int my_printf(const char *format, ...);
+
+int flag_x(va_list list, int nb_char);
+int flag_xu(va_list list, int nb_char);
 int int_to_hexa(unsigned int nb, char *ref);
 
 int flag_d(va_list list, int nb_char);
@@ -51,5 +54,13 @@ typedef struct list
     int (*ptr)(va_list, int);
     struct list *next;
 } linked_list_t;
+
+linked_list_t *initialize_list(void);
+void create_list2(linked_list_t **list);
+void create_list1(linked_list_t **list);
+int put_in_list1(linked_list_t **list, int *tab,
+    int (*tab_ptr[11])(va_list, int), int i);
+int put_in_list2(linked_list_t **list, int *tab,
+    int (*tab_ptr[10])(va_list, int), int i);
 
 #endif /* !MY_H_ */
