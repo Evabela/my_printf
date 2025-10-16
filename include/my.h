@@ -23,7 +23,7 @@ char get_sign_nb(int n);
 int display_count(const char *format, va_list list, int nb_char);
 void my_put_error(void);
 int my_printf(const char *format, ...);
-int int_to_hexa(int nb, char *ref);
+int int_to_hexa(unsigned int nb, char *ref);
 
 int flag_d(va_list list, int nb_char);
 int flag_percent(va_list list, int nb_char);
