@@ -25,7 +25,7 @@ int flag_s(va_list list, int nb_char)
     return nb_char;
 }
 
-int flag_i(va_list list, int nb_char)
+int flag_d(va_list list, int nb_char)
 {
     int int_args = 0;
 
