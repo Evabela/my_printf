@@ -15,3 +15,14 @@ int my_intlen(int nb)
     }
     return res;
 }
+
+int my_intlen_u(unsigned int nb)
+{
+    int res = 0;
+
+    while (nb != 0){
+        res++;
+        nb = nb / 10;
+    }
+    return res;
+}
