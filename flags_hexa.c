@@ -7,7 +7,7 @@
 #include <stdarg.h>
 #include "include/my.h"
 
-int int_to_hexa(int nb, char *ref)
+int int_to_hexa(unsigned int nb, char *ref)
 {
     if (nb != 0){
         int_to_hexa(nb / 16, ref);
@@ -20,7 +20,7 @@ int flag_x(va_list list, int nb_char)
 {
     char ref[16] = {'1', '2', '3', '4', '5', '6', '7', '8', '9',
         'a', 'b', 'c', 'd', 'e', 'f'};
-    int nb = va_arg(list, int);
+    unsigned int nb = va_arg(list, unsigned int);
 
     int_to_hexa(nb, ref);
     while (nb != 0){
@@ -34,7 +34,7 @@ int flag_X(va_list list, int nb_char)
 {
     char ref[16] = {'1', '2', '3', '4', '5', '6', '7', '8', '9',
         'A', 'B', 'C', 'D', 'E', 'F'};
-    int nb = va_arg(list, int);
+    unsigned int nb = va_arg(list, unsigned int);
 
     int_to_hexa(nb, ref);
     while (nb != 0){
