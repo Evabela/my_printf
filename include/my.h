@@ -56,6 +56,8 @@ typedef struct list
     struct list *next;
 } linked_list_t;
 
+int find_flags(const char *format, linked_list_t *l_list, va_list list, int i);
+
 linked_list_t *initialize_list(void);
 void create_list2(linked_list_t **list);
 void create_list1(linked_list_t **list);

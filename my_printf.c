@@ -8,11 +8,25 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+int find_flags(const char *format, linked_list_t *l_list, va_list list, int i)
+{
+    int nb_char = 0;
+
+    while (format[i + 1] != l_list->letter && l_list->next != NULL)
+        l_list = l_list->next;
+    if (l_list->next != NULL){
+        nb_char += l_list->ptr(list, i);
+    } else {
+        nb_char++;
+        my_putchar('%');
+    }
+    return (nb_char);
+}
+
 int my_printf(const char *format, ...)
 {
     va_list list;
     int nb_char = 0;
-    int i = 0;
     linked_list_t l_list = *initialize_list();
 
     va_start(list, format);
@@ -20,22 +34,14 @@ int my_printf(const char *format, ...)
         my_put_error();
         return -1;
     }
-    while (format[i] != 0){
+    for (int i = 0; format[i] != 0; i++){
         if (format[i] == '%'){
-            while (format[i + 1] != l_list.letter && l_list.next != NULL)
-                l_list = *l_list.next;
-            if (l_list.next != NULL){
-                nb_char += l_list.ptr(list, i);
-            } else {
-                nb_char++;
-                my_putchar('%');
-            }
+            nb_char += find_flags(format, &l_list, list, i);
             i++;
         } else {
             nb_char++;
             my_putchar(format[i]);
         }
-        i++;
     }
     va_end(list);
     return nb_char;
