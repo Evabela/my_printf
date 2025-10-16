@@ -18,7 +18,7 @@ int my_intlen_u(unsigned int nb);
 int my_put_nbr_u(unsigned int nb);
 
 void my_print_except(void);
-int recursive(int n, int *count);
+int recursive(int n);
 char get_sign_nb(int n);
 
 int display_count(const char *format, va_list list, int nb_char);
