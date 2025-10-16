@@ -30,7 +30,7 @@ int flag_x(va_list list, int nb_char)
     return nb_char;
 }
 
-int flag_X(va_list list, int nb_char)
+int flag_xu(va_list list, int nb_char)
 {
     char ref[16] = {'1', '2', '3', '4', '5', '6', '7', '8', '9',
         'A', 'B', 'C', 'D', 'E', 'F'};
