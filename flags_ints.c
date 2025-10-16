@@ -8,7 +8,7 @@
 #include "include/my.h"
 #include <stdarg.h>
 
-int flag_u(va_list *list, int nb_char)
+int flag_u(va_list list, int nb_char)
 {
     unsigned int nb = va_arg(list, unsigned int);
 
