@@ -65,3 +65,12 @@ int my_put_nbr(int n)
     }
     return (count);
 }
+
+int my_put_nbr_u(unsigned int nb)
+{
+    if (nb != 0){
+        my_put_nbr_u(nb / 10);
+        my_putchar(nb % 10 + '0');
+    }
+    return 0;
+}
