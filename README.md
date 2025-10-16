@@ -7,3 +7,5 @@
 - ✨ (sparkles) : add new features
 - 🙈 (see_no_evil) : add or modify a .gitignore file
 - ♻️  (recycle) : add or modify a function
+- :art: (art) : Improve the structure or the format of the code
+- :truck: (truck) : move or rename a file, a path or a route
