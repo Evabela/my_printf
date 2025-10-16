@@ -48,6 +48,7 @@ int flag_a(va_list list, int nb_char)
 {
     char ref[16] = {'1', '2', '3', '4', '5', '6', '7', '8', '9',
         'a', 'b', 'c', 'd', 'e', 'f'};
+
     return nb_char;
 }
 
@@ -55,5 +56,6 @@ int flag_au(va_list list, int nb_char)
 {
     char ref[16] = {'1', '2', '3', '4', '5', '6', '7', '8', '9',
         'A', 'B', 'C', 'D', 'E', 'F'};
+
     return nb_char;
 }
