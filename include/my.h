@@ -16,6 +16,7 @@ int my_strlen(char const *str);
 int my_intlen(int nb);
 int my_intlen_u(unsigned int nb);
 int my_put_nbr_u(unsigned int nb);
+double my_put_dbl(double temp, double nb, double ten, int nb_char);
 
 void my_print_except(void);
 int recursive(int n);
