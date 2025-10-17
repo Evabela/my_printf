@@ -63,7 +63,6 @@ int flag_f(va_list list, int nb_char)
 
 int flag_fu(va_list list, int nb_char)
 {
-    double nb = va_arg(list, double);
-
+    nb_char = flag_f(list, nb_char);
     return nb_char;
 }
