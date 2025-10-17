@@ -11,14 +11,14 @@ int int_to_hexa(unsigned int nb, char *ref)
 {
     if (nb != 0){
         int_to_hexa(nb / 16, ref);
-        my_putchar(ref[(nb % 16) - 1]);
+        my_putchar(ref[(nb % 16)]);
     }
     return 0;
 }
 
 int flag_x(va_list list, int nb_char)
 {
-    char ref[16] = {'1', '2', '3', '4', '5', '6', '7', '8', '9',
+    char ref[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'a', 'b', 'c', 'd', 'e', 'f'};
     unsigned int nb = va_arg(list, unsigned int);
 
@@ -32,7 +32,7 @@ int flag_x(va_list list, int nb_char)
 
 int flag_xu(va_list list, int nb_char)
 {
-    char ref[16] = {'1', '2', '3', '4', '5', '6', '7', '8', '9',
+    char ref[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'A', 'B', 'C', 'D', 'E', 'F'};
     unsigned int nb = va_arg(list, unsigned int);
 
@@ -54,7 +54,7 @@ int flag_a(va_list list, int nb_char)
 
 int flag_au(va_list list, int nb_char)
 {
-    char ref[16] = {'1', '2', '3', '4', '5', '6', '7', '8', '9',
+    char ref[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'A', 'B', 'C', 'D', 'E', 'F'};
 
     return nb_char;
