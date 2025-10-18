@@ -11,13 +11,13 @@
 int my_put_dbl(double temp, double nb, double ten, int nb_char)
 {
     while (nb >= 1.0){
-	while (temp >= 10.0){
+        while (temp >= 10.0){
             temp = temp / 10.0;
             ten *= 10;
         }
         my_putchar((int) temp + '0');
         nb = nb - (int) temp * ten / 10;
-	nb_char++;
+        nb_char++;
         temp = nb;
         ten = 10;
     }
@@ -49,7 +49,7 @@ int flag_i(va_list list, int nb_char)
 int flag_f(va_list list, int nb_char)
 {
     double nb = va_arg(list, double);
-   
+
     if (nb < 0.0){
         my_putchar('-');
         nb_char++;
