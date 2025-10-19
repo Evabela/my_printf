@@ -57,7 +57,7 @@ int flag_f(va_list list, int nb_char)
         nb = - nb;
     } else
         nb += 0.0000005;
-    nb_char = my_put_dbl(nb, nb, 10.0, nb_char);
+    nb_char += my_put_dbl(nb, nb, 10.0, nb_char);
     return nb_char;
 }
 
