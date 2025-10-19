@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2025
 ** flags_others
 ** File description:
-** Flags for my_printf : p
+** Flag for my_printf : p and additionnal functions
 */
 
 #include <stdarg.h>
@@ -31,4 +31,28 @@ int flag_p(va_list list, int nb_char)
         nb_char++;
     }
     return nb_char;
+}
+
+void disp_dbl_hexa(double nb, int *nb_char, int exp, char *ref)
+{
+    my_putchar('0');
+    my_putchar(ref[17]);
+    my_putchar((int) nb + '0');
+    if (nb > 1){
+        my_putchar('.');
+        *nb_char += 1;
+    }
+    while ((nb - (int) nb) * 16 != 0){
+        nb -= (int) nb;
+        nb *= 16;
+        my_putchar(ref[(int) nb]);
+        *nb_char += 1;
+    }
+    my_putchar(ref[16]);
+    if (exp >= 0){
+        my_putchar('+');
+        *nb_char += 1;
+    }
+    my_put_nbr(exp);
+    *nb_char += my_intlen(exp);
 }
