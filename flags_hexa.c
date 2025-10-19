@@ -46,10 +46,26 @@ int flag_xu(va_list list, int nb_char)
 
 int flag_a(va_list list, int nb_char)
 {
-    char ref[16] = {'1', '2', '3', '4', '5', '6', '7', '8', '9',
-        'a', 'b', 'c', 'd', 'e', 'f'};
+    double nb = va_arg(list, double);
+    char ref[18] = {'1', '2', '3', '4', '5', '6', '7', '8', '9',
+        'a', 'b', 'c', 'd', 'e', 'f', 'p', 'x'};
+    int exp = 0;
 
-    return nb_char;
+    if (nb < 0){
+        my_putchar('-');
+        nb_char++;
+        nb = - nb;
+    }
+    while (nb >= 2){
+        nb = nb / 2;
+        exp++;
+    }
+    while (nb < 1 && nb != 0){
+        nb *= 2;
+        --exp;
+    }
+    disp_dbl_hexa(nb, &nb_char, exp, ref);
+    return nb_char + 4;
 }
 
 int flag_au(va_list list, int nb_char)
