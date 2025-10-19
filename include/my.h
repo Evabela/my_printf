@@ -30,6 +30,7 @@ int flag_x(va_list list, int nb_char);
 int flag_xu(va_list list, int nb_char);
 int int_to_hexa(unsigned int nb, char *ref);
 int long_to_hexa(unsigned long nb, char *ref);
+void disp_dbl_hexa(double nb, int *nb_char, int exp, char *ref);
 
 int flag_d(va_list list, int nb_char);
 int flag_percent(va_list list, int nb_char);
