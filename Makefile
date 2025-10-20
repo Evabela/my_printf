@@ -10,6 +10,7 @@ SRC =	my_printf.c \
 	flags_hexa.c \
 	flags_ints.c \
 	flags.c \
+	flags_others.c \
 	my_putchar.c \
 	my_put_nbr.c \
 	my_strlen.c \
