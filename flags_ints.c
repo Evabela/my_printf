@@ -43,6 +43,7 @@ int flag_u(va_list list, int nb_char)
 
 int flag_i(va_list list, int nb_char)
 {
+    nb_char = flag_d(list, nb_char);
     return nb_char;
 }
 
