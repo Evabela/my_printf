@@ -46,3 +46,28 @@ int my_printf(const char *format, ...)
     va_end(list);
     return nb_char;
 }
+
+int main(void)
+{
+    my_printf("Hello World!");
+    my_putchar('\n');
+    printf("Hello World!");
+    printf("------------------------------------------------");
+    my_printf("Hello World!, %s", "Hi");
+    my_putchar('\n');
+    printf("Hello World!, %s", "Hi");
+    printf("------------------------------------------------");
+    my_printf("Hello World!, %e", 548.228);
+    my_putchar('\n');
+    printf("Hello World!, %e", 548.228);
+    printf("------------------------------------------------");
+    my_printf("Hello World!");
+    my_putchar('\n');
+    printf("Hello World!");
+    printf("------------------------------------------------");
+    my_printf("Hello World!");
+    my_putchar('\n');
+    printf("Hello World!");
+    printf("------------------------------------------------");
+    return 0;
+}
