@@ -52,7 +52,7 @@ int flag_e(va_list list, int nb_char)
         exposant += 1;
     }
     my_print_e(nb);
-    my_put_str("e+");
+    my_putstr("e+");
     if (exposant < 10)
         my_putchar('0');
     my_put_nbr(exposant);
@@ -76,7 +76,7 @@ int flag_eu(va_list list, int nb_char)
         exposant += 1;
     }
     my_print_e(nb);
-    my_put_str("E+");
+    my_putstr("E+");
     if (exposant < 10)
         my_putchar('0');
     my_put_nbr(exposant);
