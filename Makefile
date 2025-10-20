@@ -9,7 +9,8 @@ SRC =	my_printf.c \
 	initialize.c \
 	flags_hexa.c \
 	flags_ints.c \
-	flags_octa.c \
+	flag_eE.c \
+	flag_gG.c \
 	flags.c \
 	flags_others.c \
 	my_putchar.c \

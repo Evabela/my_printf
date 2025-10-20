@@ -31,6 +31,9 @@ int flag_xu(va_list list, int nb_char);
 int int_to_hexa(unsigned int nb, char *ref);
 int long_to_hexa(unsigned long nb, char *ref);
 void disp_dbl_hexa(double nb, int *nb_char, int exp, char *ref);
+int my_put_dbl(double temp, double nb, double ten, int nb_char);
+void negative_e(double nb, char letter);
+void positive_e(double nb, char letter);
 
 int flag_d(va_list list, int nb_char); //
 int flag_percent(va_list list, int nb_char); //
@@ -45,8 +48,8 @@ int flag_f(va_list list, int nb_char); //
 int flag_fu(va_list list, int nb_char); //
 int flag_e(va_list list, int nb_char); //
 int flag_eu(va_list list, int nb_char); //
-int flag_g(va_list list, int nb_char);
-int flag_gu(va_list list, int nb_char);
+int flag_g(va_list list, int nb_char); //
+int flag_gu(va_list list, int nb_char); //
 int flag_p(va_list list, int nb_char); //
 int flag_n(va_list list, int nb_char);
 int flag_a(va_list list, int nb_char); //
