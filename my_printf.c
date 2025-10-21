@@ -8,12 +8,22 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-int find_flags(const char *format, linked_list_t *l_list, va_list list, int i)
+int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
 {
     int nb_char = 0;
+    int tab[5] = {0};
+    char flags[5] = {'+', '-', ' ', '#', '0'};
+    int j = 0;
 
-    while (format[i + 1] != l_list->letter && l_list != NULL)
+    while (format[*i] != l_list->letter && format[*i] != 0){
+        if (format[*i] == flags[j]){
+            tab[j] == 1;
+            j++;
+        }
+        if (l_list->letter == 'A')
+            *i += 1;
         l_list = l_list->next;
+    }
     if (l_list != NULL){
         nb_char += l_list->ptr(list, nb_char);
     } else {
@@ -36,7 +46,7 @@ int my_printf(const char *format, ...)
     }
     for (int i = 0; format[i] != 0; i++){
         if (format[i] == '%'){
-            nb_char += find_flags(format, &l_list, list, i);
+            nb_char += find_flags(format, &l_list, list, &i);
             i++;
         } else {
             nb_char++;
