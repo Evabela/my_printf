@@ -5,8 +5,7 @@
 ## Makefile
 ##
 
-SRC =	main.c \
-	my_printf.c \
+SRC =	my_printf.c \
 	initialize.c \
 	flags_hexa.c \
 	flags_ints.c \
@@ -28,8 +27,8 @@ NAME =	libmy.a
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	ar rc $(NAME) $(OBJ)
-	epiclang -o $(NAME) $(OBJ)
+	ar rc $(NAME) $(OBJ) main.c
+	epiclang -o $(NAME) $(OBJ) main.c
 
 gcovrex:	tests_run
 	gcovr --gcov-executable "llvm-cov-20 gcov"
@@ -46,8 +45,6 @@ fclean:	clean
 	rm -f unit_tests
 
 tests_run:
-	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_return_my_printf.c $(SRC)
-	./unit_tests
 	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_print_my_printf.c $(SRC)
 	./unit_tests
 

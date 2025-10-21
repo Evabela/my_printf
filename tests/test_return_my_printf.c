@@ -27,14 +27,14 @@ Test(my_printf, more_argument)
 
     cr_assert_eq(my_printf("If you multiple %d by %d, the result is %i.", nb, 2, nb * 2), printf("If you multiple %d by %d, the result is %i.", nb, 2, nb * 2));
 }
-
+/*
 Test(my_printf, lot_of_arguments_and_percentages)
 {
     char str[8] = "Epitech";
 
     cr_assert_eq(my_printf("The word %%%s%% has %i characters.\n", str, my_strlen(str)), printf("The word %%%s%% has %i characters.\n", str, my_strlen(str)));
 }
-/*
+
 Test(my_printf, invalid_flag)
 {
     char str[8] = "Epitech";

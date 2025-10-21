@@ -12,9 +12,9 @@ int find_flags(const char *format, linked_list_t *l_list, va_list list, int i)
 {
     int nb_char = 0;
 
-    while (format[i + 1] != l_list->letter && l_list->next != NULL)
+    while (format[i + 1] != l_list->letter && l_list != NULL)
         l_list = l_list->next;
-    if (l_list->next != NULL){
+    if (l_list != NULL){
         nb_char += l_list->ptr(list, nb_char);
     } else {
         nb_char++;
@@ -43,7 +43,6 @@ int my_printf(const char *format, ...)
             my_putchar(format[i]);
         }
     }
-    
     va_end(list);
     return nb_char;
 }
