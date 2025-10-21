@@ -11,6 +11,7 @@ SRC =	my_printf.c \
 	flags_ints.c \
 	flag_eE.c \
 	flag_gG.c \
+	flags_octa.c \
 	flags.c \
 	flags_others.c \
 	my_putchar.c \
