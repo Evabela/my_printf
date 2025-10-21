@@ -4,6 +4,8 @@
 ** File description:
 ** main function
 */
+#include <stdio.h>
+#include "include/my.h"
 
 int main(void)
 {
