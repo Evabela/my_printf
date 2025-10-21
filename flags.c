@@ -41,3 +41,11 @@ int flag_percent(va_list list, int nb_char)
     nb_char++;
     return nb_char;
 }
+
+int flag_n(va_list list, int nb_char)
+{
+    int *ptr = va_arg(list, int*);
+
+    *ptr = nb_char;
+    return nb_char;
+}
