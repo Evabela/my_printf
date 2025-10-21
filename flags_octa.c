@@ -28,8 +28,8 @@ int my_print_e(double nb)
     my_put_nbr((int)nb);
     my_putchar('.');
     while (i < 6) {
-        nb = nb	- (int)nb;
-	nb = nb * 10;
+        nb = nb - (int)nb;
+        nb = nb * 10;
         my_put_nbr((int)nb);
         i++;
     }
@@ -68,7 +68,7 @@ int flag_eu(va_list list, int nb_char)
     nb_char = 12;
     if (nb < 0) {
         my_putchar('-');
-	nb = nb * -1;
+        nb = nb * -1;
         nb_char += 1;
     }
     while (nb >= 10.000000) {
@@ -82,4 +82,3 @@ int flag_eu(va_list list, int nb_char)
     my_put_nbr(exposant);
     return nb_char;
 }
-
