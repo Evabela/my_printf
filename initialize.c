@@ -14,6 +14,7 @@ int put_in_list1(linked_list_t **list, int *tab, int (*tab_ptr[11])
 
     elem->letter = tab[i];
     elem->ptr = *tab_ptr[i];
+    elem->next = *list;
     *list = elem;
     return (0);
 }
@@ -25,6 +26,7 @@ int put_in_list2(linked_list_t **list, int *tab, int (*tab_ptr[10])
 
     elem->letter = tab[i];
     elem->ptr = *tab_ptr[i];
+    elem->next = *list;
     *list = elem;
     return (0);
 }

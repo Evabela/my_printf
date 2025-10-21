@@ -15,6 +15,7 @@ void negative_e(double nb, char letter)
         nb = nb * 10;
         exponent -= 1;
     }
+    nb += 0.0000005;
     my_put_nbr((int)nb);
     my_putchar('.');
     for (int i = 0; i < 6; i++) {
@@ -38,6 +39,7 @@ void positive_e(double nb, char letter)
         nb = nb / 10;
         exponent += 1;
     }
+    nb += 0.0000005;
     my_put_nbr((int)nb);
     my_putchar('.');
     for (int i = 0; i < 6; i++) {
