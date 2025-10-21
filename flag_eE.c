@@ -59,10 +59,14 @@ int flag_e(va_list list, int nb_char)
     double nb = va_arg(list, double);
 
     nb_char = 12;
-    if (nb < 0.0) {
+    if (nb < 0.0 || nb == -0.0) {
         my_putchar('-');
         nb = nb * -1;
         nb_char += 1;
+    }
+    if (nb == 0.0) {
+	my_putstr("0.000000e+00");
+        return nb_char;
     }
     if ((int)nb == 0)
         negative_e(nb, 'e');
@@ -76,10 +80,14 @@ int flag_eu(va_list list, int nb_char)
     double nb = va_arg(list, double);
 
     nb_char = 12;
-    if (nb < 0.0) {
+    if (nb < 0.0 || nb == -0.0) {
         my_putchar('-');
         nb = nb * -1;
         nb_char += 1;
+    }
+    if (nb == 0.0) {
+	my_putstr("0.000000e+00");
+        return nb_char;
     }
     if ((int)nb == 0)
         negative_e(nb, 'E');
