@@ -60,11 +60,13 @@ void disp_dbl_hexa(double nb, int *nb_char, int exp, char *ref)
 int flag_o(va_list list, int nb_char)
 {
     unsigned int nb = va_arg(list, unsigned int);
-    unsigned int result;
+    unsigned int result = 0;
+    int i = 1;
 
-    while (nb < 8) {
-        result = (result * 10) + (nb % 8);
+    while (nb != 0) {
+        result = result + (nb % 8) * i;
         nb = nb / 8;
+        i = i * 10;
         nb_char += 1;
     }
     my_put_nbr(result);
