@@ -1,3 +1,10 @@
+## How to use my_printf ?
+### Formats possible
+my_printf("%[flag][width][.precision]<letter_specifier>...", arg1, ...)
+my_printf("%[flag][*][.*]<letter_specifier>...", arg1, arg2, arg3, ...)
+
+### Differents flags
+
 ## Commits norm (emojis used)
 - 🔥 (fire): code or file removed
 - 🐛 (bug) : bug.s resolved
