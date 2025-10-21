@@ -20,17 +20,3 @@ int flag_o(va_list list, int nb_char)
     my_put_nbr(result);
     return nb_char;
 }
-
-int my_print_e(double nb)
-{
-    int i = 0;
-
-    my_put_nbr((int)nb);
-    my_putchar('.');
-    while (i < 6) {
-        nb = nb - (int)nb;
-        nb = nb * 10;
-        my_put_nbr((int)nb);
-        i++;
-    }
-}
