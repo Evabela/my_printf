@@ -20,13 +20,7 @@ Test(myprintf, simple_string, .init = redirect_all_std)
     my_printf("hello world");
     cr_assert_stdout_eq_str("hello world");
 }
-/*
-Test(myprintf, empty_string, .init = redirect_all_std)
-{
-    my_printf("");
-    cr_assert_stdout_eq_str("");
-}
-*/
+
 Test(my_printf, s_flag, .init = redirect_all_std)
 {
     char str[6] = "world";
@@ -92,14 +86,15 @@ Test(my_printf, f_and_F_flags, .init = redirect_all_std)
 
 Test(my_printf, e_and_E_flags, .init = redirect_all_std)
 {
-    double nb1 = 87.25;
     double nb2 = -87.25;
     double nb3 = 0.00025;
+    double nb4 = -0.00;
+    double nb5 = 0.00;
 
-    my_printf("%e, %E, %e, %E, %e, %E", nb1, nb1, nb2, nb2, nb3, nb3);
-    cr_assert_stdout_eq_str("8.725000e+01, 8.725000E+01, -8.725000e+01, -8.725000E+01, 2.500000e-04, 2.500000E-04");
+    my_printf("%e, %E, %e, %E, %e, %E, %e, %E", nb2, nb2, nb3, nb3, nb4, nb4, nb5, nb5);
+    cr_assert_stdout_eq_str("-8.725000e+01, -8.725000E+01, 2.500000e-04, 2.500000E-04, -0.000000e+00, -0.000000E+00, 0.000000e+00, 0.000000E+00");
 }
-/*
+
 Test(my_printf, a_and_A_flags, .init = redirect_all_std)
 {
     double nb =	258.14;
@@ -107,13 +102,19 @@ Test(my_printf, a_and_A_flags, .init = redirect_all_std)
     my_printf("The hexa is %a or %A\n", nb, nb);
     cr_assert_stdout_eq_str("The hexa is 0x1.0223d70a3d70ap+8 or 0X1.0223D70A3D70AP+8\n");
 }
-
+/*
 Test(my_printf, p_flags, .init = redirect_all_std)
 {
     void *ptr;
 
     my_printf("%p\n", ptr);
     cr_assert_stdout_eq_str("0x7ffebd032500\n");
+}
+
+Test(myprintf, empty_string, .init = redirect_all_std)
+{
+    my_printf("");
+    cr_assert_stdout_eq_str("");
 }
 
 Test(my_printf, n_flags, .init = redirect_all_std)

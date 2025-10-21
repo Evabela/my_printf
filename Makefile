@@ -27,11 +27,7 @@ NAME =	libmy.a
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	ar rc $(NAME) $(OBJ) main.c
-	epiclang -o $(NAME) $(OBJ) main.c
-
-gcovrex:	tests_run
-	gcovr --gcov-executable "llvm-cov-20 gcov"
+	ar rc $(NAME) $(OBJ)
 
 clean:
 	rm -f *.o
@@ -47,5 +43,8 @@ fclean:	clean
 tests_run:
 	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_print_my_printf.c $(SRC)
 	./unit_tests
+
+gcovrex:	tests_run
+	gcovr --gcov-executable "llvm-cov-20 gcov"
 
 re:	fclean all
