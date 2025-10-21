@@ -76,8 +76,8 @@ int flag_eu(va_list list, int nb_char)
     nb_char = 12;
     if (nb < 0.0) {
         my_putchar('-');
-        nb = nb	* -1;
-        nb_char	+= 1;
+        nb = nb * -1;
+        nb_char += 1;
     }
     if ((int)nb == 0)
         negative_e(nb, 'E');
