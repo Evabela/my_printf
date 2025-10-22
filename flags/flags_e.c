@@ -86,7 +86,7 @@ int flag_eu(va_list list, int nb_char)
 
     nb_char = 12;
     if (nb == 0.0)
-	if ((1.0 / nb) < 0.0)
+        if ((1.0 / nb) < 0.0)
             sign = 1;
     if (nb < 0.0 || sign == 1) {
         my_putchar('-');

@@ -85,9 +85,10 @@ Test(my_printf, f_and_F_flags, .init = redirect_all_std)
 {
     double nb1 = 87.25;
     double nb2 = -87.25;
+    double nb3 = 0.0025;
 
-    my_printf("The float of is %f or %F or %f\n", nb1, nb1, nb2);
-    cr_assert_stdout_eq_str("The float of is 87.250000 or 87.250000 or -87.250000\n");
+        my_printf("The float of is %f or %F or %f or %f\n", nb1, nb1, nb2, nb3);
+    cr_assert_stdout_eq_str("The float of is 87.250000 or 87.250000 or -87.250000 or 0.002500\n");
 }
 
 Test(my_printf, e_and_E_flags, .init = redirect_all_std)

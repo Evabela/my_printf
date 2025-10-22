@@ -51,6 +51,10 @@ int flag_f(va_list list, int nb_char)
 {
     double nb = va_arg(list, double);
 
+    if ((int) nb == 0) {
+        my_putchar('0');
+        nb_char += 1;
+    }
     if (nb < 0.0){
         my_putchar('-');
         nb_char++;

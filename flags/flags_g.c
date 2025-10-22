@@ -69,6 +69,24 @@ int flag_eg(double nb, int nb_char, int letter)
     return nb_char;
 }
 
+static int display_after(double nb, int *nb_char)
+{
+    if ((int)nb != 0) 
+        for (int i = 0; (int)nb != 0 && i < 6; i++) {
+            my_putchar((int) nb + '0');
+            *nb_char = *nb_char + 1;
+            nb -= (int) nb;
+            nb *= 10;
+        }
+    else
+        for (int i = 0; nb != 0 && i < 6; i++) {
+            my_putchar((int) nb + '0');
+            *nb_char = *nb_char + 1;
+            nb -= (int) nb;
+            nb *= 10;
+        }
+}
+
 static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
 {
     while (nb >= 1.0){
@@ -85,17 +103,16 @@ static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
     my_putchar('.');
     *nb_char = *nb_char + 1;
     nb *= 10;
-    for (int i = 0; (int)nb != 0 || i < 6; i++) {
-        my_putchar((int) nb + '0');
-        *nb_char = *nb_char + 1;
-        nb -= (int) nb;
-        nb *= 10;
-    }
+    nb_char += display_after(nb, nb_char);
 }
 
 int flag_fg(double nb, int nb_char)
 {
-    if (nb == 0.0) {
+    if ((int)nb == 0) {
+        my_putchar('0');
+        nb_char += 1;
+    }
+    if (nb == 0) {
         my_putchar('0');
         nb_char += 1;
     } else if (nb < 0.0){
@@ -116,9 +133,7 @@ int flag_g(va_list list, int nb_char)
     double nbr = nb;
     int exponent = 0;
 
-    if (nb == 0.0)
-        exponent = 0;
-    else if ((int)nb == 0)
+    if ((int)nb == 0 && nb != 0.0)
         while ((int)nb == 0) {
             nb = nb * 10;
             exponent -= 1;
@@ -141,9 +156,7 @@ int flag_gu(va_list list, int nb_char)
     double nbr = nb;
     int exponent = 0;
 
-    if (nb == 0.0)
-	exponent = 0;
-    else if ((int)nb == 0)
+    if ((int)nb == 0 && nb != 0.0)
         while ((int)nb == 0) {
             nb = nb * 10;
             exponent -= 1;
