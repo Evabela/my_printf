@@ -4,6 +4,7 @@
 ** File description:
 ** Redirect in function of the flags
 */
+#include "include/my.h"
 
 void correct_flags(int *tab, int width, int precision)
 {
