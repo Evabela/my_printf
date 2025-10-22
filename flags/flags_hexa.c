@@ -16,7 +16,7 @@ int int_to_hexa(unsigned int nb, char *ref)
     return 0;
 }
 
-int flag_x(va_list list, int nb_char)
+void flag_x(va_list list, int *nb_char)
 {
     char ref[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'a', 'b', 'c', 'd', 'e', 'f'};
@@ -25,12 +25,11 @@ int flag_x(va_list list, int nb_char)
     int_to_hexa(nb, ref);
     while (nb != 0){
         nb = nb / 16;
-        nb_char++;
+        *nb_char = *nb_char + 1;
     }
-    return nb_char;
 }
 
-int flag_xu(va_list list, int nb_char)
+void flag_xu(va_list list, int *nb_char)
 {
     char ref[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'A', 'B', 'C', 'D', 'E', 'F'};
@@ -39,12 +38,11 @@ int flag_xu(va_list list, int nb_char)
     int_to_hexa(nb, ref);
     while (nb != 0){
         nb = nb / 16;
-        nb_char++;
+        *nb_char = *nb_char + 1;
     }
-    return nb_char;
 }
 
-int flag_a(va_list list, int nb_char)
+void flag_a(va_list list, int *nb_char)
 {
     double nb = va_arg(list, double);
     char ref[18] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -53,7 +51,7 @@ int flag_a(va_list list, int nb_char)
 
     if (nb < 0){
         my_putchar('-');
-        nb_char++;
+        *nb_char = *nb_char + 1;
         nb = - nb;
     }
     while (nb >= 2){
@@ -65,10 +63,9 @@ int flag_a(va_list list, int nb_char)
         --exp;
     }
     disp_dbl_hexa(nb, &nb_char, exp, ref);
-    return nb_char + 4;
 }
 
-int flag_au(va_list list, int nb_char)
+void flag_au(va_list list, int *nb_char)
 {
     double nb = va_arg(list, double);
     char ref[18] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -77,7 +74,7 @@ int flag_au(va_list list, int nb_char)
 
     if (nb < 0){
         my_putchar('-');
-        nb_char++;
+        *nb_char = *nb_char + 1;
         nb = - nb;
     }
     while (nb >= 2){
@@ -89,5 +86,4 @@ int flag_au(va_list list, int nb_char)
         --exp;
     }
     disp_dbl_hexa(nb, &nb_char, exp, ref);
-    return nb_char + 4;
 }

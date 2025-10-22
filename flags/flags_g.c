@@ -54,22 +54,21 @@ static void positive_eg(double nb, char letter)
     my_put_nbr(exponent);
 }
 
-int flag_eg(double nb, int nb_char, int letter)
+void flag_eg(double nb, int *nb_char, int letter)
 {
-    nb_char = 12;
+    *nb_char = 12;
     if (nb < 0.0) {
         my_putchar('-');
         nb = nb * -1;
-        nb_char += 1;
+        *nb_char = *nb_char + 1;
     }
     if ((int)nb == 0)
         negative_eg(nb, letter);
     else
         positive_eg(nb, letter);
-    return nb_char;
 }
 
-static int display_after(double nb, int *nb_char)
+static void display_after(double nb, int *nb_char)
 {
     if ((int)nb == 0)
         for (int i = 0; (int)nb == 0 && i < 6; i++) {
@@ -77,13 +76,13 @@ static int display_after(double nb, int *nb_char)
             *nb_char = *nb_char + 1;
             nb -= (int) nb;
             nb *= 10;
-	}
+        }
     for (int i = 0; (int)nb != 0 && i < 6; i++) {
         my_putchar((int) nb + '0');
         *nb_char = *nb_char + 1;
         nb -= (int) nb;
         nb *= 10;
-        }
+    }
 }
 
 static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
@@ -102,31 +101,30 @@ static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
     my_putchar('.');
     *nb_char = *nb_char + 1;
     nb *= 10;
-    nb_char += display_after(nb, nb_char);
+    display_after(nb, nb_char);
 }
 
-int flag_fg(double nb, int nb_char)
+void flag_fg(double nb, int *nb_char)
 {
     if ((int)nb == 0) {
         my_putchar('0');
-        nb_char += 1;
+        *nb_char = *nb_char + 1;
     }
     if (nb == 0) {
         my_putchar('0');
-        nb_char += 1;
+        *nb_char = *nb_char + 1;
     } else if (nb < 0.0){
         my_putchar('-');
-        nb_char++;
+        *nb_char = *nb_char + 1;
         nb -= 0.0000005;
         nb = - nb;
     } else
         nb += 0.0000005;
     if (nb != 0.0)
-        my_put_dbl_g(nb, nb, 10.0, &nb_char);
-    return nb_char;
+        my_put_dbl_g(nb, nb, 10.0, nb_char);
 }
 
-int flag_g(va_list list, int nb_char)
+void flag_g(va_list list, int *nb_char)
 {
     double nb = va_arg(list, double);
     double nbr = nb;
@@ -143,13 +141,12 @@ int flag_g(va_list list, int nb_char)
             exponent += 1;
         }
     if (exponent < -4 || exponent >= 6)
-        nb_char = flag_eg(nbr, nb_char, 'e');
+        flag_eg(nbr, nb_char, 'e');
     else
-        nb_char = flag_fg(nbr, nb_char);
-    return nb_char;
+        flag_fg(nbr, nb_char);
 }
 
-int flag_gu(va_list list, int nb_char)
+void flag_gu(va_list list, int *nb_char)
 {
     double nb = va_arg(list, double);
     double nbr = nb;
@@ -166,8 +163,7 @@ int flag_gu(va_list list, int nb_char)
             exponent += 1;
         }
     if (exponent < -4 || exponent >= 6)
-        nb_char = flag_eg(nbr, nb_char, 'E');
+        flag_eg(nbr, nb_char, 'E');
     else
-        nb_char = flag_fg(nbr, nb_char);
-    return nb_char;
+        flag_fg(nbr, nb_char);
 }

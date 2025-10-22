@@ -15,7 +15,7 @@ int find_flags(const char *format, linked_list_t *l_list, va_list list, int i)
     while (format[i + 1] != l_list->letter && l_list != NULL)
         l_list = l_list->next;
     if (l_list != NULL){
-        nb_char += l_list->ptr(list, nb_char);
+        l_list->ptr(list, &nb_char);
     } else {
         nb_char++;
         my_putchar('%');
