@@ -97,8 +97,8 @@ Test(my_printf, e_and_E_flags, .init = redirect_all_std)
     double nb4 = -0.00;
     double nb5 = 0.00;
 
-    my_printf("%e, %E, %e, %E, %e, %E", nb2, nb2, nb3, nb3, nb5, nb5);
-    cr_assert_stdout_eq_str("-8.725000e+01, -8.725000E+01, 2.500000e-04, 2.500000E-04, 0.000000e+00, 0.000000E+00");
+    my_printf("%e, %E, %e, %E, %e, %E, %e, %E", nb2, nb2, nb3, nb3, nb5, nb5, nb4, nb4);
+    cr_assert_stdout_eq_str("-8.725000e+01, -8.725000E+01, 2.500000e-04, 2.500000E-04, 0.000000e+00, 0.000000E+00, -0.000000e+00, -0.000000E+00");
 }
 
 Test(my_printf, a_and_A_flags, .init = redirect_all_std)
@@ -107,6 +107,18 @@ Test(my_printf, a_and_A_flags, .init = redirect_all_std)
 
     my_printf("The hexa is %a or %A\n", nb, nb);
     cr_assert_stdout_eq_str("The hexa is 0x1.0223d70a3d70ap+8 or 0X1.0223D70A3D70AP+8\n");
+}
+
+Test(my_printf, g_and_G_flags, .init = redirect_all_std)
+{
+    double nb = 0.00;
+    double nb1 = 1578964.25;
+    double nb2 = 0.000000182859;
+    double nb3 = 214.25;
+    double nb4 = 0.0258;
+
+    my_printf("%g, %G, %g, %G, %g, %G, %g, %G, %g, %G\n", nb, nb, nb1, nb1, nb2, nb2, nb3, nb3, nb4, nb4);
+    cr_assert_stdout_eq_str("0, 0, 1.57896e+06, 1.57896E+06, 1.82859e-07, 1.82859E-07, 214.25, 214.25, 0.0258, 0.0258\n");
 }
 
 /*
