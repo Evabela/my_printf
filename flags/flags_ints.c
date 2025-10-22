@@ -35,7 +35,7 @@ void flag_u(va_list list, int *nb_char)
 {
     unsigned int nb = va_arg(list, unsigned int);
 
-    nb_char += my_intlen_u(nb);
+    *nb_char += my_intlen_u(nb);
     my_put_nbr_u(nb);
 }
 

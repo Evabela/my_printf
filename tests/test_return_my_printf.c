@@ -20,12 +20,12 @@ Test(my_printf, s_flag_return)
 
     cr_assert_eq(my_printf("Hello %s", str), printf("Hello %s", str));
 }
-/*
+
 Test(myprintf, empty_string_return)
 {
     cr_assert_eq(my_printf(""), printf(""));
 }
-*/
+
 Test(my_printf, c_flag_return)
 {
     cr_assert_eq(my_printf("Hello %c\n", 'a'), printf("Hello %c\n", 'a'));
@@ -58,14 +58,14 @@ Test(my_printf, x_and_X_flags_return)
 
     cr_assert_eq(my_printf("The hexadecimal of %d is %x or %X\n", nb, nb, nb), printf("The hexadecimal of %d is %x or %X\n", nb, nb, nb));
 }
-/*
+
 Test(my_printf, u_flags_return)
 {
     int nb = -673541635;
 
     cr_assert_eq(my_printf("The unsigned of %d is %u\n", nb, nb), printf("The unsigned of %d is %u\n", nb, nb));
 }
-*/
+
 Test(my_printf, f_and_F_flags_return)
 {
     double nb1 = 87.25;
@@ -84,25 +84,27 @@ Test(my_printf, e_and_E_flags_return)
 
     cr_assert_eq(my_printf("%e, %E, %e, %E, %e, %E, %e, %E", nb2, nb2, nb3, nb3, nb5, nb5, nb4, nb4), printf("%e, %E, %e, %E, %e, %E, %e, %E", nb2, nb2, nb3, nb3, nb5, nb5, nb4, nb4));
 }
-/*
+
 Test(my_printf, a_and_A_flags_return)
 {
     double nb = 258.14;
+    double nb1 = -258.14;
+    double nb2 = 0.00258;
 
-    cr_assert_eq(my_printf("The hexa is %a or %A\n", nb, nb), printf("The hexa is %a or %A\n", nb, nb));
+    cr_assert_eq(my_printf("The hexa is %a or %A, %a, %A, %a, %A\n", nb, nb, nb1, nb1, nb2, nb2), printf("The hexa is %a or %A, %a, %A, %a, %A\n", nb, nb, nb1, nb1, nb2, nb2));
 }
 
 Test(my_printf, g_and_G_flags_return)
 {
     double nb = 0.00;
-    double nb1 = 1578964.25;
+    double nb1 = -1578964.25;
     double nb2 = 0.000000182859;
-    double nb3 = 214.25;
+    double nb3 = -214.25;
     double nb4 = 0.0258;
 
     cr_assert_eq(my_printf("%g, %G, %g, %G, %g, %G, %g, %G, %g, %G\n", nb, nb, nb1, nb1, nb2, nb2, nb3, nb3, nb4, nb4), printf("%g, %G, %g, %G, %g, %G, %g, %G, %g, %G\n", nb, nb, nb1, nb1, nb2, nb2, nb3, nb3, nb4, nb4));
 }
-*/
+
 Test(my_printf, lot_of_arguments_and_percentages_return)
 {
     char str[8] = "Epitech";

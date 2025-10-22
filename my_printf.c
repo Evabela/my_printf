@@ -14,12 +14,8 @@ int find_flags(const char *format, linked_list_t *l_list, va_list list, int i)
 
     while (format[i + 1] != l_list->letter && l_list != NULL)
         l_list = l_list->next;
-    if (l_list != NULL){
+    if (l_list != NULL)
         l_list->ptr(list, &nb_char);
-    } else {
-        nb_char++;
-        my_putchar('%');
-    }
     return (nb_char);
 }
 
@@ -31,8 +27,7 @@ int my_printf(const char *format, ...)
 
     va_start(list, format);
     if (format[0] == 0){
-        my_put_error();
-        return -1;
+        return 0;
     }
     for (int i = 0; format[i] != 0; i++){
         if (format[i] == '%'){
