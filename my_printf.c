@@ -52,7 +52,7 @@ int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
         l_list = l_list->next;
     }
     if (format[*i] != 0)
-        nb_char += l_list->ptr(list, &nb_char);
+        l_list->ptr(list, &nb_char);
     return (nb_char);
 }
 
