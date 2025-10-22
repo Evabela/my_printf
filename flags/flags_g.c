@@ -85,7 +85,7 @@ static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
     my_putchar('.');
     *nb_char = *nb_char + 1;
     nb *= 10;
-    while ((int)nb != 0) {
+    for (int i = 0; (int)nb != 0 || i < 6; i++) {
         my_putchar((int) nb + '0');
         *nb_char = *nb_char + 1;
         nb -= (int) nb;
