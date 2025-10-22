@@ -71,19 +71,18 @@ int flag_eg(double nb, int nb_char, int letter)
 
 static int display_after(double nb, int *nb_char)
 {
-    if ((int)nb != 0) 
-        for (int i = 0; (int)nb != 0 && i < 6; i++) {
+    if ((int)nb == 0)
+        for (int i = 0; (int)nb == 0 && i < 6; i++) {
             my_putchar((int) nb + '0');
             *nb_char = *nb_char + 1;
             nb -= (int) nb;
             nb *= 10;
-        }
-    else
-        for (int i = 0; nb != 0 && i < 6; i++) {
-            my_putchar((int) nb + '0');
-            *nb_char = *nb_char + 1;
-            nb -= (int) nb;
-            nb *= 10;
+	}
+    for (int i = 0; (int)nb != 0 && i < 6; i++) {
+        my_putchar((int) nb + '0');
+        *nb_char = *nb_char + 1;
+        nb -= (int) nb;
+        nb *= 10;
         }
 }
 
