@@ -53,7 +53,7 @@ void disp_dbl_hexa(double nb, int *nb_char, int exp, char *ref)
         *nb_char = *nb_char + 1;
     }
     my_put_nbr(exp);
-    *nb_char = *nb_char + my_intlen(exp);
+    *nb_char = *nb_char + my_intlen(exp) + 4;
 }
 
 void flag_o(va_list list, int *nb_char)
