@@ -7,18 +7,18 @@
 
 SRC =	my_printf.c \
 	initialize.c \
-	flags_hexa.c \
-	flags_ints.c \
-	flags_e.c \
-	flags_g.c \
-	flags.c \
-	flags_others.c \
-	my_putchar.c \
-	my_put_nbr.c \
-	my_strlen.c \
-	my_intlen.c \
+	flags/flags_hexa.c \
+	flags/flags_ints.c \
+	flags/flags_e.c \
+	flags/flags_g.c \
+	flags/flags.c \
+	flags/flags_others.c \
+	lib/my_putchar.c \
+	lib/my_put_nbr.c \
+	lib/my_strlen.c \
+	lib/my_intlen.c \
 	my_put_error.c \
-	my_putstr.c
+	lib/my_putstr.c
 
 OBJ =	$(SRC:.c=.o)
 
