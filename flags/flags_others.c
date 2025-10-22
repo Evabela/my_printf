@@ -17,20 +17,19 @@ int long_to_hexa(unsigned long nb, char *ref)
     return 0;
 }
 
-int flag_p(va_list list, int nb_char)
+void flag_p(va_list list, int *nb_char)
 {
     unsigned long adress = (unsigned long) va_arg(list, void *);
     char ref[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'a', 'b', 'c', 'd', 'e', 'f'};
 
     my_putstr("0x");
-    nb_char += 2;
+    *nb_char = *nb_char + 2;
     long_to_hexa(adress, ref);
     while (adress != 0){
         adress = adress / 16;
-        nb_char++;
+        *nb_char = *nb_char + 1;
     }
-    return nb_char;
 }
 
 void disp_dbl_hexa(double nb, int *nb_char, int exp, char *ref)
@@ -40,24 +39,24 @@ void disp_dbl_hexa(double nb, int *nb_char, int exp, char *ref)
     my_putchar((int) nb + '0');
     if (nb > 1){
         my_putchar('.');
-        *nb_char += 1;
+        *nb_char = *nb_char + 1;
     }
     while ((nb - (int) nb) * 16 != 0){
         nb -= (int) nb;
         nb *= 16;
         my_putchar(ref[(int) nb]);
-        *nb_char += 1;
+        *nb_char = *nb_char + 1;
     }
     my_putchar(ref[16]);
     if (exp >= 0){
         my_putchar('+');
-        *nb_char += 1;
+        *nb_char = *nb_char + 1;
     }
     my_put_nbr(exp);
-    *nb_char += my_intlen(exp);
+    *nb_char = *nb_char + my_intlen(exp) + 3;
 }
 
-int flag_o(va_list list, int nb_char)
+void flag_o(va_list list, int *nb_char)
 {
     unsigned int nb = va_arg(list, unsigned int);
     unsigned int result = 0;
@@ -67,8 +66,7 @@ int flag_o(va_list list, int nb_char)
         result = result + (nb % 8) * i;
         nb = nb / 8;
         i = i * 10;
-        nb_char += 1;
+        *nb_char = *nb_char + 1;
     }
     my_put_nbr(result);
-    return nb_char;
 }
