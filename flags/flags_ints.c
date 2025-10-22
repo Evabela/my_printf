@@ -5,7 +5,7 @@
 ** Flags functions for u, i, f and F
 */
 
-#include "include/my.h"
+#include "../include/my.h"
 #include <stdarg.h>
 
 int my_put_dbl(double temp, double nb, double ten, int nb_char)

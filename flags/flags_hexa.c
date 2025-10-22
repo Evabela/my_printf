@@ -5,7 +5,7 @@
 ** flags x, X, a and A
 */
 #include <stdarg.h>
-#include "include/my.h"
+#include "../include/my.h"
 
 int int_to_hexa(unsigned int nb, char *ref)
 {

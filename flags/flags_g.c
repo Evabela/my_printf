@@ -5,7 +5,7 @@
 ** flags g et G
 */
 #include <stdarg.h>
-#include "include/my.h"
+#include "../include/my.h"
 
 int flag_eg(double nb, int nb_char, int letter)
 {

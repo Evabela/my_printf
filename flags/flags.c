@@ -5,7 +5,7 @@
 ** flags for the printf project
 */
 
-#include "include/my.h"
+#include "../include/my.h"
 #include <stdarg.h>
 
 int flag_c(va_list list, int nb_char)

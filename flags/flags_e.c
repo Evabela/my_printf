@@ -5,7 +5,7 @@
 ** declare the o flag and others
 */
 #include <stdarg.h>
-#include "include/my.h"
+#include "../include/my.h"
 
 void negative_e(double nb, char letter)
 {
@@ -65,7 +65,7 @@ int flag_e(va_list list, int nb_char)
         nb_char += 1;
     }
     if (nb == 0.0) {
-	my_putstr("0.000000e+00");
+        my_putstr("0.000000e+00");
         return nb_char;
     }
     if ((int)nb == 0)
@@ -86,7 +86,7 @@ int flag_eu(va_list list, int nb_char)
         nb_char += 1;
     }
     if (nb == 0.0) {
-	my_putstr("0.000000E+00");
+        my_putstr("0.000000E+00");
         return nb_char;
     }
     if ((int)nb == 0)
