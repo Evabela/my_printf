@@ -7,6 +7,53 @@
 #include <stdarg.h>
 #include "../include/my.h"
 
+static void negative_eg(double nb, char letter)
+{
+    int exponent = 0;
+
+    while ((int)nb == 0) {
+        nb = nb * 10;
+        exponent -= 1;
+    }
+    nb += 0.0000005;
+    my_put_nbr((int)nb);
+    my_putchar('.');
+    for (int i = 0; i < 5; i++) {
+        nb = nb - (int)nb;
+        nb = nb * 10;
+        my_put_nbr((int)nb);
+    }
+    my_putchar(letter);
+    my_putchar('-');
+    exponent = exponent * (-1);
+    if (exponent < 10)
+        my_putchar('0');
+    my_put_nbr(exponent);
+}
+
+static void positive_eg(double nb, char letter)
+{
+    int exponent = 0;
+
+    while ((int)nb >= 10) {
+        nb = nb / 10;
+        exponent += 1;
+    }
+    nb += 0.0000005;
+    my_put_nbr((int)nb);
+    my_putchar('.');
+    for (int i = 0; i < 5; i++) {
+        nb = nb - (int)nb;
+        nb = nb * 10;
+        my_put_nbr((int)nb);
+    }
+    my_putchar(letter);
+    my_putchar('+');
+    if (exponent < 10)
+        my_putchar('0');
+    my_put_nbr(exponent);
+}
+
 int flag_eg(double nb, int nb_char, int letter)
 {
     nb_char = 12;
@@ -16,22 +63,50 @@ int flag_eg(double nb, int nb_char, int letter)
         nb_char += 1;
     }
     if ((int)nb == 0)
-        negative_e(nb, letter);
+        negative_eg(nb, letter);
     else
-        positive_e(nb, letter);
+        positive_eg(nb, letter);
     return nb_char;
+}
+
+static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
+{
+    while (nb >= 1.0){
+        while (temp >= 10.0){
+            temp = temp / 10.0;
+            ten *= 10;
+        }
+        my_putchar((int) temp + '0');
+        nb = nb - (int) temp * ten / 10;
+        *nb_char = *nb_char + 1;
+        temp = nb;
+        ten = 10;
+    }
+    my_putchar('.');
+    *nb_char = *nb_char + 1;
+    nb *= 10;
+    for (int i = 0; (int)nb != 0 || i < 6; i++) {
+        my_putchar((int) nb + '0');
+        *nb_char = *nb_char + 1;
+        nb -= (int) nb;
+        nb *= 10;
+    }
 }
 
 int flag_fg(double nb, int nb_char)
 {
-    if (nb < 0.0){
+    if (nb == 0.0) {
+        my_putchar('0');
+        nb_char += 1;
+    } else if (nb < 0.0){
         my_putchar('-');
         nb_char++;
         nb -= 0.0000005;
         nb = - nb;
     } else
         nb += 0.0000005;
-    nb_char += my_put_dbl(nb, nb, 10.0, nb_char);
+    if (nb != 0.0)
+        my_put_dbl_g(nb, nb, 10.0, &nb_char);
     return nb_char;
 }
 
@@ -41,7 +116,9 @@ int flag_g(va_list list, int nb_char)
     double nbr = nb;
     int exponent = 0;
 
-    if ((int)nb == 0)
+    if (nb == 0.0)
+        exponent = 0;
+    else if ((int)nb == 0)
         while ((int)nb == 0) {
             nb = nb * 10;
             exponent -= 1;
@@ -64,7 +141,9 @@ int flag_gu(va_list list, int nb_char)
     double nbr = nb;
     int exponent = 0;
 
-    if ((int)nb == 0)
+    if (nb == 0.0)
+	exponent = 0;
+    else if ((int)nb == 0)
         while ((int)nb == 0) {
             nb = nb * 10;
             exponent -= 1;

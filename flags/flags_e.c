@@ -57,9 +57,13 @@ void positive_e(double nb, char letter)
 int flag_e(va_list list, int nb_char)
 {
     double nb = va_arg(list, double);
+    int sign = 0;
 
     nb_char = 12;
-    if (nb < 0.0 || nb == -0.0) {
+    if (nb == 0.0)
+        if ((1.0 / nb) < 0.0)
+            sign = 1;
+    if (nb < 0.0 || sign == 1) {
         my_putchar('-');
         nb = nb * -1;
         nb_char += 1;
@@ -78,9 +82,13 @@ int flag_e(va_list list, int nb_char)
 int flag_eu(va_list list, int nb_char)
 {
     double nb = va_arg(list, double);
+    int sign = 0;
 
     nb_char = 12;
-    if (nb < 0.0 || nb == -0.0) {
+    if (nb == 0.0)
+	if ((1.0 / nb) < 0.0)
+            sign = 1;
+    if (nb < 0.0 || sign == 1) {
         my_putchar('-');
         nb = nb * -1;
         nb_char += 1;
