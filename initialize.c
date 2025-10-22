@@ -8,7 +8,7 @@
 #include "./include/my.h"
 
 int put_in_list1(linked_list_t **list, int *tab, void (*tab_ptr[11])
-    (va_list, int*), int i)
+    (va_list, int *), int i)
 {
     linked_list_t *elem = malloc(sizeof(linked_list_t));
 
@@ -20,7 +20,7 @@ int put_in_list1(linked_list_t **list, int *tab, void (*tab_ptr[11])
 }
 
 int put_in_list2(linked_list_t **list, int *tab, void (*tab_ptr[10])
-    (va_list, int*), int i)
+    (va_list, int *), int i)
 {
     linked_list_t *elem = malloc(sizeof(linked_list_t));
 

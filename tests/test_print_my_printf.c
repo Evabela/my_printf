@@ -87,7 +87,7 @@ Test(my_printf, f_and_F_flags, .init = redirect_all_std)
     double nb2 = -87.25;
     double nb3 = 0.0025;
 
-        my_printf("The float of is %f or %F or %f or %f\n", nb1, nb1, nb2, nb3);
+    my_printf("The float of is %f or %F or %f or %f\n", nb1, nb1, nb2, nb3);
     cr_assert_stdout_eq_str("The float of is 87.250000 or 87.250000 or -87.250000 or 0.002500\n");
 }
 
@@ -104,7 +104,7 @@ Test(my_printf, e_and_E_flags, .init = redirect_all_std)
 
 Test(my_printf, a_and_A_flags, .init = redirect_all_std)
 {
-    double nb =	258.14;
+    double nb = 258.14;
 
     my_printf("The hexa is %a or %A\n", nb, nb);
     cr_assert_stdout_eq_str("The hexa is 0x1.0223d70a3d70ap+8 or 0X1.0223D70A3D70AP+8\n");
@@ -122,20 +122,3 @@ Test(my_printf, g_and_G_flags, .init = redirect_all_std)
     cr_assert_stdout_eq_str("0, 0, 1.57896e+06, 1.57896E+06, 1.82859e-07, 1.82859E-07, 214.25, 214.25, 0.0258, 0.0258\n");
 }
 
-/*
-Test(my_printf, p_flags, .init = redirect_all_std)
-{
-    void *ptr;
-
-    my_printf("%p\n", ptr);
-    cr_assert_stdout_eq_str("0x7ffebd032500\n");
-}
-
-Test(my_printf, n_flags, .init = redirect_all_std)
-{
-    int *ptr;
-
-    my_printf("Hello World%n\n", ptr);
-    cr_assert_stdout_eq_str("Hello World\n");
-}
-*/

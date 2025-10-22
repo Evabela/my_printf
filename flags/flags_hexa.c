@@ -62,7 +62,7 @@ void flag_a(va_list list, int *nb_char)
         nb *= 2;
         --exp;
     }
-    disp_dbl_hexa(nb, &nb_char, exp, ref);
+    disp_dbl_hexa(nb, nb_char, exp, ref);
 }
 
 void flag_au(va_list list, int *nb_char)
@@ -85,5 +85,5 @@ void flag_au(va_list list, int *nb_char)
         nb *= 2;
         --exp;
     }
-    disp_dbl_hexa(nb, &nb_char, exp, ref);
+    disp_dbl_hexa(nb, nb_char, exp, ref);
 }

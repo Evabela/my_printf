@@ -109,8 +109,7 @@ void flag_fg(double nb, int *nb_char)
     if ((int)nb == 0) {
         my_putchar('0');
         *nb_char = *nb_char + 1;
-    }
-    if (nb == 0) {
+    } else if (nb == 0) {
         my_putchar('0');
         *nb_char = *nb_char + 1;
     } else if (nb < 0.0){

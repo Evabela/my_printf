@@ -43,8 +43,11 @@ fclean:	clean
 tests_run:
 	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_print_my_printf.c $(SRC)
 	./unit_tests
+	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_return_my_printf.c $(SRC)
+	./unit_tests
 
 gcovrex:	tests_run
+	gcovr --gcov-executable "llvm-cov-20 gcov"
 	gcovr --branches --gcov-executable "llvm-cov-20 gcov"
 
 re:	fclean all
