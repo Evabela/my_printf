@@ -8,28 +8,51 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+int find_number(int *i, const char *format, int *width, int *precision)
+{
+    if (format[*i] == '.'){
+        if (*precision != 0)
+            return 0;
+        *i += 1;
+        while (format[*i] >= '0' && format[*i] <= '9'){
+            *precision = *precision * 10 + format[*i];
+            *i += 1;
+        }
+        return my_intlen(*precision);
+    } else {
+        if (*width != 0)
+            return 0;
+        while (format[*i] >= '0' && format[*i] <= '9'){
+            *width *= 10;
+            *width += format[*i];
+            *i += 1;
+	}
+        return my_intlen(*width);
+    }
+    return 0;
+}
+
 int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
 {
     int nb_char = 0;
     int tab[5] = {0};
     char flags[5] = {'+', '-', ' ', '#', '0'};
+    int width = 0;
+    int precision = 0;
     int j = 0;
 
     while (format[*i] != l_list->letter && format[*i] != 0){
         if (format[*i] == flags[j]){
-            tab[j] == 1;
+            tab[j] = 1;
             j++;
         }
+        nb_char += find_number(i, format, &width, &precision);
         if (l_list->letter == 'A')
             *i += 1;
         l_list = l_list->next;
     }
-    if (l_list != NULL){
+    if (format[*i] != 0)
         nb_char += l_list->ptr(list, nb_char);
-    } else {
-        nb_char++;
-        my_putchar('%');
-    }
     return (nb_char);
 }
 
