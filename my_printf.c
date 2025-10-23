@@ -34,7 +34,7 @@ int find_number(int *i, const char *format, int *width, int *precision)
             *width *= 10;
             *width += format[*i];
             *i = *i + 1;
-	}
+        }
         return my_intlen(*width);
     }
     return 0;
