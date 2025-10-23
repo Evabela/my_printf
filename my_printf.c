@@ -20,10 +20,10 @@ int find_number(int *i, const char *format, int *width, int *precision)
     if (format[*i] == '.'){
         if (*precision != 0)
             return 0;
-        *i += 1;
+        *i = *i + 1;
         while (format[*i] >= '0' && format[*i] <= '9'){
             *precision = *precision * 10 + format[*i];
-            *i += 1;
+            *i = *i + 1;
         }
         return my_intlen(*precision);
     }
@@ -33,8 +33,8 @@ int find_number(int *i, const char *format, int *width, int *precision)
         while (format[*i] >= '0' && format[*i] <= '9'){
             *width *= 10;
             *width += format[*i];
-            *i += 1;
-        }
+            *i = *i + 1;
+	}
         return my_intlen(*width);
     }
     return 0;
@@ -56,7 +56,7 @@ int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
         }
         nb_char += find_number(i, format, &width, &precision);
         if (l_list->letter == 'A')
-            *i += 1;
+            *i = *i + 1;
         l_list = l_list->next;
     }
     put_args_in_tab(tab, l_list->letter, width, precision);

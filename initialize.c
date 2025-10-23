@@ -73,8 +73,13 @@ void create_list2(linked_list_t **list)
 linked_list_t *initialize_list(void)
 {
     linked_list_t *list = NULL;
+    linked_list_t *tete;
 
     create_list1(&list);
     create_list2(&list);
+    tete = list;
+    while (list->next != NULL)
+        list = list->next;
+    list->next = tete;
     return (list);
 }
