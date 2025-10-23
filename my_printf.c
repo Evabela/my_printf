@@ -32,6 +32,13 @@ void find_number(int *i, const char *format, int *width, int *precision)
     }
 }
 
+void is_flag(int *tab, char *flags, char charact)
+{
+    for (int j = 0; j < 5; j++)
+        if (charact == flags[j])
+            tab[j] = 1;
+}
+
 int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
 {
     int nb_char = 0;
@@ -42,10 +49,7 @@ int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
     int j = 0;
 
     while (format[*i] != l_list->letter && format[*i] != 0){
-        if (format[*i] == flags[j]){
-            tab[j] = 1;
-            j++;
-        }
+        is_flag(tab, flags, format[*i]);
         find_number(i, format, &width, &precision);
         if (l_list->letter == 'A')
             *i = *i + 1;
