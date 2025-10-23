@@ -78,15 +78,21 @@ void flag_eg(double nb, int *nb_char, int letter)
         display_eg(nb, nb_char, letter, '-');
 }
 
+static int get_first(double temp, double *ten)
+{
+    while (temp >= 10.0){
+        temp = temp / 10.0;
+        *ten = *ten * 10;
+    }
+    return temp;
+}
+
 static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
 {
     int i = 0;
 
     while (nb >= 1.0 && i < 6){
-        while (temp >= 10.0){
-            temp = temp / 10.0;
-            ten *= 10;
-        }
+        get_first(temp, &ten);
         if (i == 5)
             temp = last_nb(nb);
         my_putchar((int) temp + '0');

@@ -34,7 +34,7 @@ int find_number(int *i, const char *format, int *width, int *precision)
             *width *= 10;
             *width += format[*i];
             *i = *i + 1;
-	}
+        }
         return my_intlen(*width);
     }
     return 0;
@@ -47,9 +47,8 @@ int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
     char flags[5] = {'+', '-', ' ', '#', '0'};
     int width = 0;
     int precision = 0;
-    int j = 0;
 
-    while (format[*i] != l_list->letter && format[*i] != 0){
+    for (int j = 0; format[*i] != l_list->letter && format[*i] != 0; j++){
         if (format[*i] == flags[j]){
             tab[j] = 1;
             j++;

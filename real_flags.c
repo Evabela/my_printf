@@ -17,3 +17,4 @@ void correct_flags(int *tab, int width, int precision)
     if (tab[4] == 1 && width == 0)
         tab[4] = 0;
 }
+
