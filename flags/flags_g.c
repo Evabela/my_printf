@@ -85,7 +85,7 @@ void flag_eg(double nb, int *nb_char, int letter)
 static void display_end(double nb, int i, int *nb_char)
 {
     if (i < 6) {
-	my_putchar('.');
+        my_putchar('.');
         *nb_char = *nb_char + 1;
         nb *= 10;
         display_after(nb, nb_char, i);
