@@ -37,8 +37,9 @@ void correct_flags2(int *tab)
         tab[4] = 0;
 }
 
-void redirect_flag_int(int *tab, int *nb_char, int nb)
+void redirect_flag(int *tab, int *nb_char)
 {
+    int nb = 0;
     correct_flags(tab);
     correct_flags2(tab);
     if (tab[0] == 1)

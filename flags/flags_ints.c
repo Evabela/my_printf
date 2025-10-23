@@ -52,10 +52,11 @@ void my_put_dbl(double temp, double nb, double ten, int *nb_char)
     display_end(i, nb, nb_char);
 }
 
-void flag_u(va_list list, int *nb_char)
+void flag_u(va_list list, int *nb_char, int *tab)
 {
     unsigned int nb = va_arg(list, unsigned int);
 
+    redirect_flag(tab, nb_char);
     if (nb == 0) {
         my_putchar('0');
         *nb_char = *nb_char + 1;
@@ -65,15 +66,16 @@ void flag_u(va_list list, int *nb_char)
     }
 }
 
-void flag_i(va_list list, int *nb_char)
+void flag_i(va_list list, int *nb_char, int *tab)
 {
-    flag_d(list, nb_char);
+    flag_d(list, nb_char, tab);
 }
 
-void flag_f(va_list list, int *nb_char)
+void flag_f(va_list list, int *nb_char, int *tab)
 {
     double nb = va_arg(list, double);
 
+    redirect_flag(tab, nb_char);
     if ((int) nb == 0) {
         my_putchar('0');
         *nb_char = *nb_char + 1;
@@ -88,7 +90,7 @@ void flag_f(va_list list, int *nb_char)
     my_put_dbl(nb, nb, 10.0, nb_char);
 }
 
-void flag_fu(va_list list, int *nb_char)
+void flag_fu(va_list list, int *nb_char, int *tab)
 {
-    flag_f(list, nb_char);
+    flag_f(list, nb_char, tab);
 }

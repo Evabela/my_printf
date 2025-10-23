@@ -26,8 +26,8 @@ int display_count(const char *format, va_list list, int *nb_char);
 void my_put_error(void);
 int my_printf(const char *format, ...);
 
-void flag_x(va_list list, int *nb_char);
-void flag_xu(va_list list, int *nb_char);
+void flag_x(va_list list, int *nb_char, int *tab);
+void flag_xu(va_list list, int *nb_char, int *tab);
 int int_to_hexa(unsigned int nb, char *ref);
 int long_to_hexa(unsigned long nb, char *ref);
 void disp_dbl_hexa(double nb, int *nb_char, int exp, char *ref);
@@ -35,30 +35,32 @@ void my_put_dbl(double temp, double nb, double ten, int *nb_char);
 void negative_e(double nb, char letter);
 void positive_e(double nb, char letter);
 
-void flag_d(va_list list, int *nb_char);
-void flag_percent(va_list list, int *nb_char);
-void flag_c(va_list list, int *nb_char);
-void flag_s(va_list list, int *nb_char);
-void flag_i(va_list list, int *nb_char);
-void flag_o(va_list list, int *nb_char);
-void flag_x(va_list list, int *nb_char);
-void flag_xu(va_list list, int *nb_char);
-void flag_u(va_list list, int *nb_char);
-void flag_f(va_list list, int *nb_char);
-void flag_fu(va_list list, int *nb_char);
-void flag_e(va_list list, int *nb_char);
-void flag_eu(va_list list, int *nb_char);
-void flag_g(va_list list, int *nb_char);
-void flag_gu(va_list list, int *nb_char);
-void flag_p(va_list list, int *nb_char);
-void flag_n(va_list list, int *nb_char);
-void flag_a(va_list list, int *nb_char);
-void flag_au(va_list list, int *nb_char);
+void flag_d(va_list list, int *nb_char, int *tab);
+void flag_percent(va_list list, int *nb_char, int *tab);
+void flag_c(va_list list, int *nb_char, int *tab);
+void flag_s(va_list list, int *nb_char, int *tab);
+void flag_i(va_list list, int *nb_char, int *tab);
+void flag_o(va_list list, int *nb_char, int *tab);
+void flag_x(va_list list, int *nb_char, int *tab);
+void flag_xu(va_list list, int *nb_char, int *tab);
+void flag_u(va_list list, int *nb_char, int *tab);
+void flag_f(va_list list, int *nb_char, int *tab);
+void flag_fu(va_list list, int *nb_char, int *tab);
+void flag_e(va_list list, int *nb_char, int *tab);
+void flag_eu(va_list list, int *nb_char, int *tab);
+void flag_g(va_list list, int *nb_char, int *tab);
+void flag_gu(va_list list, int *nb_char, int *tab);
+void flag_p(va_list list, int *nb_char, int *tab);
+void flag_n(va_list list, int *nb_char, int *tab);
+void flag_a(va_list list, int *nb_char, int *tab);
+void flag_au(va_list list, int *nb_char, int *tab);
+
+void redirect_flag(int *tab, int *nb_char);
 
 typedef struct list
 {
     char letter;
-    void (*ptr)(va_list, int *);
+    void (*ptr)(va_list, int *, int *);
     struct list *next;
 } linked_list_t;
 
@@ -69,8 +71,10 @@ linked_list_t *initialize_list(void);
 void create_list2(linked_list_t **list);
 void create_list1(linked_list_t **list);
 int put_in_list1(linked_list_t **list, int *tab,
-    void (*tab_ptr[11])(va_list, int *), int i);
+    void (*tab_ptr[11])(va_list, int *, int *), int i);
 int put_in_list2(linked_list_t **list, int *tab,
-    void (*tab_ptr[10])(va_list, int *), int i);
+    void (*tab_ptr[10])(va_list, int *, int *), int i);
+
+void redirect_flag(int *tab, int *nb_char);
 
 #endif /* !MY_H_ */

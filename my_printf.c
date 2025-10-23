@@ -57,7 +57,7 @@ int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
     }
     put_args_in_tab(tab, l_list->letter, width, precision);
     if (format[*i] != 0)
-        l_list->ptr(list, &nb_char);
+        l_list->ptr(list, &nb_char, tab);
     return (nb_char);
 }
 

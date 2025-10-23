@@ -17,12 +17,13 @@ int long_to_hexa(unsigned long nb, char *ref)
     return 0;
 }
 
-void flag_p(va_list list, int *nb_char)
+void flag_p(va_list list, int *nb_char, int *tab)
 {
     unsigned long adress = (unsigned long) va_arg(list, void *);
     char ref[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'a', 'b', 'c', 'd', 'e', 'f'};
 
+    redirect_flag(tab, nb_char);
     my_putstr("0x");
     *nb_char = *nb_char + 2;
     long_to_hexa(adress, ref);
@@ -56,12 +57,13 @@ void disp_dbl_hexa(double nb, int *nb_char, int exp, char *ref)
     *nb_char = *nb_char + my_intlen(exp) + 4;
 }
 
-void flag_o(va_list list, int *nb_char)
+void flag_o(va_list list, int *nb_char, int *tab)
 {
     unsigned int nb = va_arg(list, unsigned int);
     unsigned int result = 0;
     int i = 1;
 
+    redirect_flag(tab, nb_char);
     if (nb == 0) {
         my_putchar('0');
         *nb_char = *nb_char + 1;
