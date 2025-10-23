@@ -36,3 +36,7 @@ void correct_flags2(int *tab)
         (tab[5] == 'c' || tab[5] == 's' || tab[5] == 'p' || tab[5] == '%'))
         tab[4] = 0;
 }
+
+void redirect_flag(int *tab, int *nb_char)
+{
+}

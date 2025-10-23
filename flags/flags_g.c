@@ -133,12 +133,13 @@ void flag_fg(double nb, int *nb_char)
         my_put_dbl_g(nb, nb, 10.0, nb_char);
 }
 
-void flag_g(va_list list, int *nb_char)
+void flag_g(va_list list, int *nb_char, int *tab)
 {
     double nb = va_arg(list, double);
     double nbr = nb;
     int exponent = 0;
 
+    redirect_flag(tab, nb_char);
     if ((int)nb == 0 && nb != 0.0)
         while ((int)nb == 0) {
             nb = nb * 10;
@@ -155,12 +156,13 @@ void flag_g(va_list list, int *nb_char)
         flag_fg(nbr, nb_char);
 }
 
-void flag_gu(va_list list, int *nb_char)
+void flag_gu(va_list list, int *nb_char, int *tab)
 {
     double nb = va_arg(list, double);
     double nbr = nb;
     int exponent = 0;
 
+    redirect_flag(tab, nb_char);
     if ((int)nb == 0 && nb != 0.0)
         while ((int)nb == 0) {
             nb = nb * 10;
