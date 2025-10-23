@@ -48,7 +48,11 @@ static void display_eg(double nb, int *nb_char, char letter, char sign)
 {
     int exponent = 0;
 
-    while ((int)nb >= 10) {
+    while ((int)nb == 0) {
+        nb = nb * 10;
+        exponent += 1;
+    }
+    while ((int)nb > 10) {
         nb = nb / 10;
         exponent += 1;
     }
@@ -73,9 +77,19 @@ void flag_eg(double nb, int *nb_char, int letter)
         *nb_char = *nb_char + 1;
     }
     if ((int)nb == 0)
-        display_eg(nb, nb_char, letter, '+');
-    else
         display_eg(nb, nb_char, letter, '-');
+    else
+        display_eg(nb, nb_char, letter, '+');
+}
+
+static void display_end(double nb, int i, int *nb_char)
+{
+    if (i < 6) {
+	my_putchar('.');
+        *nb_char = *nb_char + 1;
+        nb *= 10;
+        display_after(nb, nb_char, i);
+    }
 }
 
 static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
@@ -85,7 +99,7 @@ static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
     while (nb >= 1.0 && i < 6){
         while (temp >= 10.0){
             temp = temp / 10.0;
-            ten *= 10;
+            ten = ten * 10;
         }
         if (i == 5)
             temp = last_nb(nb);
@@ -96,12 +110,7 @@ static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
         temp = nb;
         ten = 10;
     }
-    if (i < 6) {
-        my_putchar('.');
-        *nb_char = *nb_char + 1;
-        nb *= 10;
-        display_after(nb, nb_char, i);
-    }
+    display_end(nb, i, nb_char);
 }
 
 void flag_fg(double nb, int *nb_char)

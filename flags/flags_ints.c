@@ -19,6 +19,16 @@ static int last_nb(double nb)
     return temp;
 }
 
+static void display_end(int i, double nb, int *nb_char)
+{
+    for (int i = 0; i < 6; i++){
+        nb *= 10;
+        my_putchar((int) nb + '0');
+        *nb_char = *nb_char + 1;
+        nb -= (int) nb;
+    }
+}
+
 void my_put_dbl(double temp, double nb, double ten, int *nb_char)
 {
     int i = 0;
@@ -39,12 +49,7 @@ void my_put_dbl(double temp, double nb, double ten, int *nb_char)
     }
     my_putchar('.');
     *nb_char = *nb_char + 1;
-    for (int i = 0; i < 6; i++){
-        nb *= 10;
-        my_putchar((int) nb + '0');
-        *nb_char = *nb_char + 1;
-        nb -= (int) nb;
-    }
+    display_end(i, nb, nb_char);
 }
 
 void flag_u(va_list list, int *nb_char)
