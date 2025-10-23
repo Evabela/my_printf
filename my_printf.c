@@ -8,6 +8,13 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+void put_args_in_tab(int *tab, char letter, int width, int precision)
+{
+    tab[5] = letter;
+    tab[6] = width;
+    tab[7] = precision;
+}
+
 int find_number(int *i, const char *format, int *width, int *precision)
 {
     if (format[*i] == '.'){
@@ -35,7 +42,7 @@ int find_number(int *i, const char *format, int *width, int *precision)
 int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
 {
     int nb_char = 0;
-    int tab[5] = {0};
+    int tab[8] = {0};
     char flags[5] = {'+', '-', ' ', '#', '0'};
     int width = 0;
     int precision = 0;
@@ -51,6 +58,7 @@ int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
             *i = *i + 1;
         l_list = l_list->next;
     }
+    put_args_in_tab(tab, l-list->letter, width, precision);
     if (format[*i] != 0)
         l_list->ptr(list, &nb_char);
     return (nb_char);
