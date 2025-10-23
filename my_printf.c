@@ -64,8 +64,7 @@ int my_printf(const char *format, ...)
 
     va_start(list, format);
     if (format[0] == 0){
-        my_put_error();
-        return -1;
+        return 0;
     }
     for (int i = 0; format[i] != 0; i++){
         if (format[i] == '%'){

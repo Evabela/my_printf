@@ -56,7 +56,7 @@ static void positive_eg(double nb, char letter)
 
 void flag_eg(double nb, int *nb_char, int letter)
 {
-    *nb_char = 12;
+    *nb_char = 11;
     if (nb < 0.0) {
         my_putchar('-');
         nb = nb * -1;
@@ -106,10 +106,11 @@ static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
 
 void flag_fg(double nb, int *nb_char)
 {
-    if ((int)nb == 0) {
+    if ((int)nb == 0 && nb != 0.0) {
         my_putchar('0');
         *nb_char = *nb_char + 1;
-    } else if (nb == 0) {
+    }
+    if (nb == 0) {
         my_putchar('0');
         *nb_char = *nb_char + 1;
     } else if (nb < 0.0){
@@ -135,7 +136,7 @@ void flag_g(va_list list, int *nb_char)
             exponent -= 1;
         }
     else
-        while ((int)nb >= 10) {
+        while ((int)nb >= 10 || (int)nb < 0) {
             nb = nb / 10;
             exponent += 1;
         }
@@ -157,7 +158,7 @@ void flag_gu(va_list list, int *nb_char)
             exponent -= 1;
         }
     else
-        while ((int)nb >= 10) {
+        while ((int)nb >= 10 || (int)nb < 0) {
             nb = nb / 10;
             exponent += 1;
         }

@@ -1,33 +1,17 @@
 /*
 ** EPITECH PROJECT, 2025
-** main
+** my_printf
 ** File description:
-** main function
+** main
 */
+#include "./include/my.h"
 #include <stdio.h>
-#include "include/my.h"
 
 int main(void)
 {
-    my_printf("Hello World!");
-    my_putchar('\n');
-    printf("Hello World!");
-    printf("------------------------------------------------");
-    my_printf("Hello World!, %s", "Hi");
-    my_putchar('\n');
-    printf("Hello World!, %s", "Hi");
-    printf("------------------------------------------------");
-    my_printf("Hello World!, %e", 548.228);
-    my_putchar('\n');
-    printf("Hello World!, %e", 548.228);
-    printf("------------------------------------------------");
-    my_printf("Hello World!");
-    my_putchar('\n');
-    printf("Hello World!");
-    printf("------------------------------------------------");
-    my_printf("Hello World!");
-    my_putchar('\n');
-    printf("Hello World!");
-    printf("------------------------------------------------");
-    return 0;
+    double nb = 0.00;
+    double nb1 = -0.00;
+
+    my_printf("%e, %E, %e, %E\n", nb, nb, nb1, nb1);
+    printf("%e, %E, %e, %E\n", nb, nb, nb1, nb1);
 }
