@@ -26,14 +26,15 @@ int find_number(int *i, const char *format, int *width, int *precision)
             *i += 1;
         }
         return my_intlen(*precision);
-    } else {
+    }
+    if (format[*i] >= '1' && format[*i] <= '9') {
         if (*width != 0)
             return 0;
         while (format[*i] >= '0' && format[*i] <= '9'){
             *width *= 10;
             *width += format[*i];
             *i += 1;
-	}
+        }
         return my_intlen(*width);
     }
     return 0;
@@ -58,7 +59,7 @@ int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
             *i += 1;
         l_list = l_list->next;
     }
-    put_args_in_tab(tab, l-list->letter, width, precision);
+    put_args_in_tab(tab, l_list->letter, width, precision);
     if (format[*i] != 0)
         l_list->ptr(list, &nb_char);
     return (nb_char);
