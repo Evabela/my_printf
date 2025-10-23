@@ -78,7 +78,6 @@ int my_printf(const char *format, ...)
     for (int i = 0; format[i] != 0; i++){
         if (format[i] == '%'){
             nb_char += find_flags(format, &l_list, list, &i);
-            i++;
         } else {
             nb_char++;
             my_putchar(format[i]);
