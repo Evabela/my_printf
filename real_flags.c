@@ -21,5 +21,5 @@ void correct_flags(int *tab)
 void correct_flags2(int *tab)
 {
     //char flags[5] = {'+', '-', ' ', '#', '0', letter, w, p};
-    if (tab[0] == 1 && (tab[5] == 'u' || tab[5] == 'o' || tab[5] == ''))
+    if (tab[0] == 1 && (tab[5] == 'u' || tab[5] == 'o' || tab[5] == ' '))
 }
