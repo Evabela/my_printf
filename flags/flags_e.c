@@ -95,10 +95,9 @@ void flag_eu(va_list list, int *nb_char, int *tab)
     }
     if (nb == 0.0)
         my_putstr("0.000000E+00");
-    else {
+    else
         if ((int)nb == 0)
             negative_e(nb, 'E');
         else
             positive_e(nb, 'E');
-    }
 }
