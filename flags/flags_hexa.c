@@ -22,6 +22,10 @@ void flag_x(va_list list, int *nb_char)
         'a', 'b', 'c', 'd', 'e', 'f'};
     unsigned int nb = va_arg(list, unsigned int);
 
+    if (nb == 0) {
+        my_putchar('0');
+        *nb_char = *nb_char + 1;
+    }
     int_to_hexa(nb, ref);
     while (nb != 0){
         nb = nb / 16;

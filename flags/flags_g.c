@@ -7,31 +7,44 @@
 #include <stdarg.h>
 #include "../include/my.h"
 
-static void negative_eg(double nb, char letter)
+static int last_nb(double nb)
 {
-    int exponent = 0;
+    int temp = nb;
 
-    while ((int)nb == 0) {
-        nb = nb * 10;
-        exponent -= 1;
-    }
-    nb += 0.0000005;
-    my_put_nbr((int)nb);
-    my_putchar('.');
-    for (int i = 0; i < 5; i++) {
+    nb = nb - (int)nb;
+    nb = nb * 10;
+    while ((int)nb == 5) {
         nb = nb - (int)nb;
         nb = nb * 10;
-        my_put_nbr((int)nb);
     }
-    my_putchar(letter);
-    my_putchar('-');
-    exponent = exponent * (-1);
-    if (exponent < 10)
-        my_putchar('0');
-    my_put_nbr(exponent);
+    if ((int)nb > 5)
+        temp += 1.0;
+    return temp;
 }
 
-static void positive_eg(double nb, char letter)
+static void display_after(double nb, int *nb_char, int i)
+{
+    while ((int)nb == 0 && i < 6) {
+        if (i == 5)
+            nb = last_nb(nb);
+        my_putchar((int) nb + '0');
+        *nb_char = *nb_char + 1;
+        nb -= (int) nb;
+        nb *= 10;
+        i++;
+    }
+    while ((int)nb != 0 && i < 6) {
+        if (i == 5)
+            nb = last_nb(nb);
+        my_putchar((int) nb + '0');
+        *nb_char = *nb_char + 1;
+        nb -= (int) nb;
+        nb *= 10;
+        i++;
+    }
+}
+
+static void display_eg(double nb, int *nb_char, char letter, char sign)
 {
     int exponent = 0;
 
@@ -42,13 +55,10 @@ static void positive_eg(double nb, char letter)
     nb += 0.0000005;
     my_put_nbr((int)nb);
     my_putchar('.');
-    for (int i = 0; i < 5; i++) {
-        nb = nb - (int)nb;
-        nb = nb * 10;
-        my_put_nbr((int)nb);
-    }
+    nb = nb - (int)nb;
+    display_after(nb, nb_char, 1);
     my_putchar(letter);
-    my_putchar('+');
+    my_putchar(sign);
     if (exponent < 10)
         my_putchar('0');
     my_put_nbr(exponent);
@@ -63,45 +73,35 @@ void flag_eg(double nb, int *nb_char, int letter)
         *nb_char = *nb_char + 1;
     }
     if ((int)nb == 0)
-        negative_eg(nb, letter);
+        display_eg(nb, nb_char, letter, '+');
     else
-        positive_eg(nb, letter);
-}
-
-static void display_after(double nb, int *nb_char)
-{
-    if ((int)nb == 0)
-        for (int i = 0; (int)nb == 0 && i < 6; i++) {
-            my_putchar((int) nb + '0');
-            *nb_char = *nb_char + 1;
-            nb -= (int) nb;
-            nb *= 10;
-        }
-    for (int i = 0; (int)nb != 0 && i < 6; i++) {
-        my_putchar((int) nb + '0');
-        *nb_char = *nb_char + 1;
-        nb -= (int) nb;
-        nb *= 10;
-    }
+        display_eg(nb, nb_char, letter, '-');
 }
 
 static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
 {
-    while (nb >= 1.0){
+    int i = 0;
+
+    while (nb >= 1.0 && i < 6){
         while (temp >= 10.0){
             temp = temp / 10.0;
             ten *= 10;
         }
+        if (i == 5)
+            temp = last_nb(nb);
         my_putchar((int) temp + '0');
+        i++;
         nb = nb - (int) temp * ten / 10;
         *nb_char = *nb_char + 1;
         temp = nb;
         ten = 10;
     }
-    my_putchar('.');
-    *nb_char = *nb_char + 1;
-    nb *= 10;
-    display_after(nb, nb_char);
+    if (i < 6) {
+        my_putchar('.');
+        *nb_char = *nb_char + 1;
+        nb *= 10;
+        display_after(nb, nb_char, i);
+    }
 }
 
 void flag_fg(double nb, int *nb_char)

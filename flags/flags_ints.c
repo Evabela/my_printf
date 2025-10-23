@@ -8,13 +8,29 @@
 #include "../include/my.h"
 #include <stdarg.h>
 
+static int last_nb(double nb)
+{
+    int temp = nb;
+
+    nb = nb - (int)nb;
+    nb = nb * 10;
+    if ((int)nb > 5)
+        temp += 1.0;
+    return temp;
+}
+
 void my_put_dbl(double temp, double nb, double ten, int *nb_char)
 {
-    while (nb >= 1.0){
+    int i = 0;
+
+    while (nb >= 1.0 && i < 6){
         while (temp >= 10.0){
             temp = temp / 10.0;
             ten *= 10;
         }
+        if (i == 5)
+            nb = last_nb(nb);
+        i++;
         my_putchar((int) temp + '0');
         nb = nb - (int) temp * ten / 10;
         *nb_char = *nb_char + 1;
@@ -35,8 +51,13 @@ void flag_u(va_list list, int *nb_char)
 {
     unsigned int nb = va_arg(list, unsigned int);
 
-    *nb_char += my_intlen_u(nb);
-    my_put_nbr_u(nb);
+    if (nb == 0) {
+        my_putchar('0');
+        *nb_char = *nb_char + 1;
+    } else {
+        *nb_char += my_intlen_u(nb);
+        my_put_nbr_u(nb);
+    }
 }
 
 void flag_i(va_list list, int *nb_char)
