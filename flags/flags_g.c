@@ -13,6 +13,10 @@ static int last_nb(double nb)
 
     nb = nb - (int)nb;
     nb = nb * 10;
+    while ((int)nb == 5) {
+        nb = nb - (int)nb;
+        nb = nb * 10;
+    }
     if ((int)nb > 5)
         temp += 1.0;
     return temp;
@@ -84,7 +88,7 @@ static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
             ten *= 10;
         }
         if (i == 5)
-            nb = last_nb(nb);
+            temp = last_nb(nb);
         my_putchar((int) temp + '0');
         i++;
         nb = nb - (int) temp * ten / 10;
@@ -92,10 +96,12 @@ static void my_put_dbl_g(double temp, double nb, double ten, int *nb_char)
         temp = nb;
         ten = 10;
     }
-    my_putchar('.');
-    *nb_char = *nb_char + 1;
-    nb *= 10;
-    display_after(nb, nb_char, i);
+    if (i < 6) {
+        my_putchar('.');
+        *nb_char = *nb_char + 1;
+        nb *= 10;
+        display_after(nb, nb_char, i);
+    }
 }
 
 void flag_fg(double nb, int *nb_char)

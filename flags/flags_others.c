@@ -62,11 +62,16 @@ void flag_o(va_list list, int *nb_char)
     unsigned int result = 0;
     int i = 1;
 
-    while (nb != 0) {
-        result = result + (nb % 8) * i;
-        nb = nb / 8;
-        i = i * 10;
+    if (nb == 0) {
+        my_putchar('0');
         *nb_char = *nb_char + 1;
+    } else {
+        while (nb != 0) {
+            result = result + (nb % 8) * i;
+            nb = nb / 8;
+            i = i * 10;
+            *nb_char = *nb_char + 1;
+        }
+        my_put_nbr(result);
     }
-    my_put_nbr(result);
 }
