@@ -15,7 +15,7 @@ void put_args_in_tab(int *tab, char letter, int width, int precision)
     tab[7] = precision;
 }
 
-int find_number(int *i, const char *format, int *width, int *precision)
+void find_number(int *i, const char *format, int *width, int *precision)
 {
     if (format[*i] == '.' && *precision != 0){
         *i = *i + 1;
@@ -23,16 +23,13 @@ int find_number(int *i, const char *format, int *width, int *precision)
             *precision = *precision * 10 + format[*i];
             *i = *i + 1;
         }
-        return my_intlen(*precision);
     }
     if (format[*i] >= '1' && format[*i] <= '9' && *width != 0) {
         while (format[*i] >= '0' && format[*i] <= '9'){
             *width = *width * 10 + format[*i];
             *i = *i + 1;
         }
-        return my_intlen(*width);
     }
-    return 0;
 }
 
 int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
@@ -42,13 +39,14 @@ int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i)
     char flags[5] = {'+', '-', ' ', '#', '0'};
     int width = 0;
     int precision = 0;
+    int j = 0;
 
-    for (int j = 0; format[*i] != l_list->letter && format[*i] != 0; j++){
+    while (format[*i] != l_list->letter && format[*i] != 0){
         if (format[*i] == flags[j]){
             tab[j] = 1;
             j++;
         }
-        nb_char += find_number(i, format, &width, &precision);
+        find_number(i, format, &width, &precision);
         if (l_list->letter == 'A')
             *i = *i + 1;
         l_list = l_list->next;
