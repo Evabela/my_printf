@@ -41,9 +41,7 @@ fclean:	clean
 	rm -f unit_tests
 
 tests_run:
-	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_print_my_printf.c $(SRC)
-	./unit_tests
-	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/test_return_my_printf.c $(SRC)
+	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/*.c $(SRC)
 	./unit_tests
 
 gcovrex:	tests_run

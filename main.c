@@ -9,9 +9,18 @@
 
 int main(void)
 {
-    double nb = 0.00;
-    double nb1 = -0.00;
+    double nb4 = 2000000.985123;
+    double nb5 = -2000000.985123;
+    double nb6 = 0.00001234567;
+    double nb8 = 125.0;
 
-    my_printf("%e, %E, %e, %E\n", nb, nb, nb1, nb1);
-    printf("%e, %E, %e, %E\n", nb, nb, nb1, nb1);
+    my_printf("Hello, %g, %G \n", nb4, nb4);
+    printf("Hello, %g, %G\n", nb4, nb4);
+    my_printf("Hello, %g, %G \n", nb5, nb5);
+    printf("Hello, %g, %G\n", nb5, nb5);
+    my_printf("Hello, %g, %G\n", nb6, nb6);
+    printf("Hello, %g, %G\n", nb6, nb6);
+    my_printf("Hello, %g, %G \n", nb8, nb8);
+    printf("Hello, %g, %G\n", nb8, nb8);
+
 }
