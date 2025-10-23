@@ -20,6 +20,23 @@ Test(my_printf, s_flag_return)
 
     cr_assert_eq(my_printf("Hello %s", str), printf("Hello %s", str));
 }
+/*
+Test(myprintf, empty_string_return)
+{
+    cr_assert_eq(my_printf(""), printf(""));
+}
+*/
+Test(my_printf, c_flag_return)
+{
+    cr_assert_eq(my_printf("Hello %c\n", 'a'), printf("Hello %c\n", 'a'));
+}
+
+Test(my_printf, o_flags_return)
+{
+    int nb = 670;
+
+    cr_assert_eq(my_printf("The octal of %d is %o\n", nb, nb), printf("The octal of %d is %o\n", nb, nb));
+}
 
 Test(myprintf, empty_string_return)
 {
@@ -104,10 +121,19 @@ Test(my_printf, g_and_G_flags_return)
 
     cr_assert_eq(my_printf("%g, %G, %g, %G, %g, %G, %g, %G, %g, %G\n", nb, nb, nb1, nb1, nb2, nb2, nb3, nb3, nb4, nb4), printf("%g, %G, %g, %G, %g, %G, %g, %G, %g, %G\n", nb, nb, nb1, nb1, nb2, nb2, nb3, nb3, nb4, nb4));
 }
+/*
+Test(my_printf, u_flags_return)
+{
+    int nb = -673541635;
 
 Test(my_printf, lot_of_arguments_and_percentages_return)
 {
-    char str[8] = "Epitech";
+    double nb1 = 87.25;
+    double nb2 = -87.25;
+    double nb3 = 0.0025;
+
+    cr_assert_eq(my_printf("The float of is %f or %F or %f or %f\n", nb1, nb1, nb2, nb3), printf("The float of is %f or %F or %f or %f\n", nb1, nb1, nb2, nb3));
+}
 
     cr_assert_eq(my_printf("The word %%%s%% has %i characters.\n", str, my_strlen(str)), printf("The word %%%s%% has %i characters.\n", str, my_strlen(str)));
 }
