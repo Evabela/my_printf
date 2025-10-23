@@ -63,6 +63,7 @@ typedef struct list
 } linked_list_t;
 
 int find_flags(const char *format, linked_list_t *l_list, va_list list, int *i);
+void find_number(int *i, const char *format, int *width, int *precision);
 
 linked_list_t *initialize_list(void);
 void create_list2(linked_list_t **list);
