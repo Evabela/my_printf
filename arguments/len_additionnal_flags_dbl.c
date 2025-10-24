@@ -65,9 +65,40 @@ int my_glen(double nb)
     return len;
 }
 
+static int count_dbl_hexa(double nb, int exp, int nb_char)
+{
+    if (nb > 1)
+        nb_char = nb_char + 1;
+    while ((nb - (int) nb) * 16 != 0){
+        nb -= (int) nb;
+        nb *= 16;
+        nb_char = nb_char + 1;
+    }
+    if (exp >= 0)
+        nb_char = nb_char + 1;
+    nb_char = nb_char + my_intlen(exp) + 4;
+    return nb_char;
+}
+
 int my_floathexalen(double nb)
 {
-    return 0;
+    int exp = 0;
+    int nb_char = 0;
+
+    if (nb < 0){
+        nb_char = nb_char + 1;
+        nb = - nb;
+    }
+    while (nb >= 2){
+        nb = nb / 2;
+        exp++;
+    }
+    while (nb < 1 && nb != 0){
+        nb *= 2;
+	--exp;
+    }
+    nb_char += count_dbl_hexa(nb, exp, nb_char);
+    return nb_char;
 }
 
 int my_explen(double nb)
