@@ -4,7 +4,7 @@
 ** File description:
 ** Redirect in function of the flags
 */
-#include "include/my.h"
+#include "./include/my.h"
 
 void redirect_flag_nb(int *tab, int nb, int *nb_char)
 {

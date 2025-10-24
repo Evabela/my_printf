@@ -58,7 +58,13 @@ void flag_n(va_list list, int *nb_char, int *tab);
 void flag_a(va_list list, int *nb_char, int *tab);
 void flag_au(va_list list, int *nb_char, int *tab);
 
-void redirect_flag(int *tab, int *nb_char);
+void correct_flags(int *tab);
+void correct_flags2(int *tab);
+void redirect_flag_nb(int *tab, int nb, int *nb_char);
+void redirect_flag_dblnb(int *tab, double nb, int *nb_char);
+void redirect_flag_str(int *tab, char *str, int *nb_char);
+void redirect_flag_char(int *tab, char letter, int *nb_char);
+void redirect_flag_unb(int *tab, unsigned int nb, int *nb_char);
 void function_spaces(char letter, int *nb_char, int len);
 void function_sharp(int *nb_char, int tab);
 void function_pos(int *nb_char, char letter);
