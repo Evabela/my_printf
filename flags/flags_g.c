@@ -139,7 +139,7 @@ void flag_g(va_list list, int *nb_char, int *tab)
     double nbr = nb;
     int exponent = 0;
 
-    redirect_flag(tab, nb_char);
+    redirect_flag_dblnb(tab, nb, nb_char);
     if ((int)nb == 0 && nb != 0.0)
         while ((int)nb == 0) {
             nb = nb * 10;
@@ -162,7 +162,7 @@ void flag_gu(va_list list, int *nb_char, int *tab)
     double nbr = nb;
     int exponent = 0;
 
-    redirect_flag(tab, nb_char);
+    redirect_flag_dblnb(tab, nb, nb_char);
     if ((int)nb == 0 && nb != 0.0)
         while ((int)nb == 0) {
             nb = nb * 10;

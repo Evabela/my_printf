@@ -59,7 +59,7 @@ void flag_e(va_list list, int *nb_char, int *tab)
     double nb = va_arg(list, double);
     int sign = 0;
 
-    redirect_flag(tab, nb_char);
+    redirect_flag_dblnb(tab, nb, nb_char);
     *nb_char = 12;
     if (nb == 0.0)
         if ((1.0 / nb) < 0.0)
@@ -83,7 +83,7 @@ void flag_eu(va_list list, int *nb_char, int *tab)
     double nb = va_arg(list, double);
     int sign = 0;
 
-    redirect_flag(tab, nb_char);
+    redirect_flag_dblnb(tab, nb, nb_char);
     *nb_char = 12;
     if (nb == 0.0)
         if ((1.0 / nb) < 0.0)
