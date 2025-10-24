@@ -49,7 +49,7 @@ tests_run:
 	./unit_tests
 
 gcovrex:	tests_run
-	gcovr --gcov-executable "llvm-cov-20 gcov" --exclude "tests/.*"
-	gcovr --branches --gcov-executable "llvm-cov-20 gcov" --exclude "tests/.*"
+	gcovr --gcov-executable "llvm-cov-20 gcov" --exclude "tests/.*" --exclude "lib/.*"
+	gcovr --branches --gcov-executable "llvm-cov-20 gcov" --exclude "tests/.*" --exclude "lib/.*"
 
 re:	fclean all
