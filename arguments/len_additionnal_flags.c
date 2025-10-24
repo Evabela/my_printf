@@ -6,9 +6,28 @@
 */
 #include "../include/my.h"
 
+
+int len_to_hexa(unsigned int nb, int res)
+{
+    if (nb != 0){
+        int_to_hexa(nb / 16, res);
+        res++;
+    }
+    return res;
+}
+
 int my_hexalen(unsigned int nb)
 {
-    return 0;
+    int res = 0;
+
+    if (nb == 0)
+        res ++;
+    len_to_hexa(nb, ref);
+    while (nb != 0){
+        nb = nb / 16;
+        res++;
+    }
+    return res;
 }
 
 int my_octlen(unsigned int nb)
