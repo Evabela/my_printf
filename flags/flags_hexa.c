@@ -22,7 +22,7 @@ void flag_x(va_list list, int *nb_char, int *tab)
         'a', 'b', 'c', 'd', 'e', 'f'};
     unsigned int nb = va_arg(list, unsigned int);
 
-    redirect_flag(tab, nb_char);
+    redirect_flag_unb(tab, nb, nb_char);
     if (nb == 0) {
         my_putchar('0');
         *nb_char = *nb_char + 1;
@@ -40,7 +40,7 @@ void flag_xu(va_list list, int *nb_char, int *tab)
         'A', 'B', 'C', 'D', 'E', 'F'};
     unsigned int nb = va_arg(list, unsigned int);
 
-    redirect_flag(tab, nb_char);
+    redirect_flag_unb(tab, nb, nb_char);
     int_to_hexa(nb, ref);
     while (nb != 0){
         nb = nb / 16;
@@ -55,7 +55,7 @@ void flag_a(va_list list, int *nb_char, int *tab)
         'a', 'b', 'c', 'd', 'e', 'f', 'p', 'x'};
     int exp = 0;
 
-    redirect_flag(tab, nb_char);
+    redirect_flag_dblnb(tab, nb, nb_char);
     if (nb < 0){
         my_putchar('-');
         *nb_char = *nb_char + 1;
@@ -79,7 +79,7 @@ void flag_au(va_list list, int *nb_char, int *tab)
         'A', 'B', 'C', 'D', 'E', 'F', 'P', 'X'};
     int exp = 0;
 
-    redirect_flag(tab, nb_char);
+    redirect_flag_dblnb(tab, nb, nb_char);
     if (nb < 0){
         my_putchar('-');
         *nb_char = *nb_char + 1;

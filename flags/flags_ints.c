@@ -56,7 +56,7 @@ void flag_u(va_list list, int *nb_char, int *tab)
 {
     unsigned int nb = va_arg(list, unsigned int);
 
-    redirect_flag(tab, nb_char);
+    redirect_flag_unb(tab, nb, nb_char);
     if (nb == 0) {
         my_putchar('0');
         *nb_char = *nb_char + 1;
@@ -75,7 +75,7 @@ void flag_f(va_list list, int *nb_char, int *tab)
 {
     double nb = va_arg(list, double);
 
-    redirect_flag(tab, nb_char);
+    redirect_flag_dblnb(tab, nb, nb_char);
     if ((int) nb == 0) {
         my_putchar('0');
         *nb_char = *nb_char + 1;

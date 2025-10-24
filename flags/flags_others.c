@@ -23,7 +23,7 @@ void flag_p(va_list list, int *nb_char, int *tab)
     char ref[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'a', 'b', 'c', 'd', 'e', 'f'};
 
-    redirect_flag(tab, nb_char);
+    //redirect_flag(tab, nb_char);
     my_putstr("0x");
     *nb_char = *nb_char + 2;
     long_to_hexa(adress, ref);
@@ -63,7 +63,7 @@ void flag_o(va_list list, int *nb_char, int *tab)
     unsigned int result = 0;
     int i = 1;
 
-    redirect_flag(tab, nb_char);
+    redirect_flag_unb(tab, nb, nb_char);
     if (nb == 0) {
         my_putchar('0');
         *nb_char = *nb_char + 1;

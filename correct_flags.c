@@ -37,12 +37,3 @@ void correct_flags2(int *tab)
         (tab[5] == 'c' || tab[5] == 's' || tab[5] == 'p' || tab[5] == '%'))
         tab[4] = 0;
 }
-
-void function_spaces(char letter, int tab[6], int *nb_char, int char_nb)
-{
-    for (int i = 0; i < char_nb; i++) {
-        my_putchar(letter);
-        *nb_char += 1;
-    }
-}
-        
