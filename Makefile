@@ -7,9 +7,9 @@
 
 SRC =	my_printf.c \
 	initialize.c \
-	flags_functions.c \
-	real_flags.c \
-	correct_flags.c \
+	arguments/flags_functions.c \
+	arguments/real_flags.c \
+	arguments/correct_flags.c \
 	flags/flags_hexa.c \
 	flags/flags_ints.c \
 	flags/flags_e.c \
