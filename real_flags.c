@@ -77,7 +77,7 @@ void redirect_flag_char(int *tab, char c, int *nb_char)
     correct_flags(tab);
     correct_flags2(tab);
     if (tab[1] == 1)
-        function_alignement(nb, nb_char, tab[6]);
+        function_alignement(nb_char, tab[6]);
     if (tab[6] > 0)
         function_spaces(' ', nb_char, tab[6] - 1);
 }
