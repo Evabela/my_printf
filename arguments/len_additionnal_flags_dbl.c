@@ -45,7 +45,24 @@ int my_floatlen(double nb)
 
 int my_glen(double nb)
 {
-    return 0;
+    double temp = nb;
+    int len = 0;
+
+    if ((int)nb == 0 && nb != 0.0)
+        while ((int)nb == 0) {
+            nb = nb * 10;
+            exponent -= 1;
+        }
+    else
+        while ((int)nb >= 10 || (int)nb < 0) {
+            nb = nb / 10;
+            exponent += 1;
+        }
+    if (exponent < -4 || exponent >= 6)
+        len = my_explen(temp);
+    else
+        len = my_floatlen(nb);
+    return len;
 }
 
 int my_floathexalen(double nb)
@@ -55,7 +72,13 @@ int my_floathexalen(double nb)
 
 int my_explen(double nb)
 {
-    return 0;
+    if (nb == 0.0)
+        if ((1.0 / nb) < 0.0)
+            sign = 1;
+    if (nb < 0.0 || sign == 1) {
+        return 13;
+    }
+    return 12;
 }
 
 int len_additionnal_dbl(int *tab, int *nb_char, double nb)
