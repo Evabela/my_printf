@@ -5,6 +5,8 @@
 ** Check and return either 0 or the width less number of characters printed
 */
 
+#include "../include/my.h"
+
 static int count_floatlen(double ten, double nb, double temp, int nb_char)
 {
     while (nb >= 1.0){
@@ -41,11 +43,6 @@ int my_floatlen(double nb)
         nb += 0.0000005;
     nb_char += count_floatlen(10, nb, nb, nb_char);
     return nb_char;
-}
-
-int my_floathexalen(double nb)
-{
-    return 0;
 }
 
 int my_explen(double nb)
