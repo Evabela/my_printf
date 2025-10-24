@@ -10,7 +10,7 @@
 int len_to_hexa(unsigned int nb, int res)
 {
     if (nb != 0){
-        int_to_hexa(nb / 16, res);
+        len_to_hexa(nb / 16, res);
         res++;
     }
     return res;
@@ -21,8 +21,8 @@ int my_hexalen(unsigned int nb)
     int res = 0;
 
     if (nb == 0)
-        res ++;
-    len_to_hexa(nb, ref);
+        res++;
+    len_to_hexa(nb, res);
     while (nb != 0){
         nb = nb / 16;
         res++;

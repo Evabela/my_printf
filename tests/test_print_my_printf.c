@@ -25,8 +25,8 @@ Test(my_printf, s_flag, .init = redirect_all_std)
 {
     char str[6] = "world";
 
-    my_printf("Hello %s\n", str);
-    cr_assert_stdout_eq_str("Hello world\n");
+    my_printf("Hello %s, %s\n", str, "");
+    cr_assert_stdout_eq_str("Hello world, \n");
 }
 
 Test(my_printf, c_flag, .init = redirect_all_std)
@@ -117,4 +117,35 @@ Test(my_printf, g_and_G_flags, .init = redirect_all_std)
     my_printf("%g, %G, %g, %G, %g, %G, %g, %G, %g, %G\n", nb, nb, nb1, nb1, nb2, nb2, nb3, nb3, nb4, nb4);
     cr_assert_stdout_eq_str("0, 0, -1.57896e+06, -1.57896E+06, 1.82859e-07, 1.82859E-07, -214.25, -214.25, 0.0258, 0.0258\n");
 }
+
+Test(myprintf, arg_plus, .init = redirect_all_std)
+{
+    my_printf("hello world, %+s, %+d, %+i, %+e, %+f, %+u", "hello", 548, 548, 48.25, 258.357, 548);
+    cr_assert_stdout_eq_str("hello world, hello, +548, +548, +4.825000e+01, +258.357000, 548");
+}
+
+Test(myprintf, arg_incompatible, .init = redirect_all_std)
+{
+    my_printf("hello world, %+ s, %+ d, %+ i, %+ e, %+ f, %+ u", "hello", 548, 548, 48.25, 258.357, 548);
+    cr_assert_stdout_eq_str("hello world, hello, +548, +548, +4.825000e+01, +258.357000, 548");
+}
+
+Test(myprintf, arg_minus, .init = redirect_all_std)
+{
+    my_printf("hello world, %-s, %-d, %-i, %-e, %-f, %-u", "hello", 548, 548, 48.25, 258.357, 548);
+    cr_assert_stdout_eq_str("hello world, hello, 548, 548, 4.825000e+01, 258.357000, 548");
+}
+
+Test(myprintf, arg_space, .init = redirect_all_std)
+{
+    my_printf("hello world, % s, % d, % i, % e, % f, % u", "hello", 548, 548, 48.25, 258.357, 548);
+    cr_assert_stdout_eq_str("hello world, hello,  548,  548,  4.825000e+01,  258.357000, 548");
+}
+
+Test(myprintf, arg_space, .init = redirect_all_std)
+{
+    my_printf("hello world, %7s, %7d, %7i, %7e, %7f, %7u", "hello", 548, 548, 48.25, 258.357, 548);
+    cr_assert_stdout_eq_str("hello world, hello,  548,  548,  4.825000e+01,  258.357000, 548");
+}
+
 

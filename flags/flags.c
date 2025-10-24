@@ -24,9 +24,8 @@ void flag_s(va_list list, int *nb_char, int *tab)
 
     str = va_arg(list, char *);
     redirect_flag_str(tab, str, nb_char);
-    if (str == NULL) {
-        my_putstr("(null)");
-        *nb_char = *nb_char + 6;
+    if (str == "") {
+        my_putstr("");
     } else {
         my_putstr(str);
         *nb_char = *nb_char + my_strlen(str);
