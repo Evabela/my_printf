@@ -23,7 +23,6 @@ void flag_p(va_list list, int *nb_char, int *tab)
     char ref[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'a', 'b', 'c', 'd', 'e', 'f'};
 
-    //redirect_flag(tab, nb_char);
     my_putstr("0x");
     *nb_char = *nb_char + 2;
     long_to_hexa(adress, ref);
