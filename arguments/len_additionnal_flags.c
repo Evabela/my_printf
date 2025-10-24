@@ -13,7 +13,18 @@ int my_hexalen(unsigned int nb)
 
 int my_octlen(unsigned int nb)
 {
-    return 0;
+    int len = 0;
+    int i = 1;
+
+    if (nb == 0) {
+        return len;
+    } else {
+        while (nb != 0) {
+            nb = nb / 8;
+            len += 1;
+        }
+    }
+    return len;
 }
 
 int len_additionnal_uint(int *tab, int *nb_char, unsigned int nb)

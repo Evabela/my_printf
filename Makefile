@@ -22,7 +22,6 @@ SRC =	my_printf.c \
 	lib/my_put_nbr.c \
 	lib/my_strlen.c \
 	lib/my_intlen.c \
-	my_put_error.c \
 	lib/my_putstr.c
 
 OBJ =	$(SRC:.c=.o)
