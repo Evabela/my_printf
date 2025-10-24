@@ -52,7 +52,6 @@ void redirect_flag_unb(int *tab, unsigned int nb, int *nb_char)
         function_alignement(nb_char, tab[6]);
     if (tab[2] == 1)
         function_pos(nb_char, ' ');
-<<<<<<< HEAD
     if (tab[3] == 1)
         function_sharp(nb_char, tab[5]);
     if (tab[4] == 1)
@@ -89,8 +88,6 @@ void redirect_flag_char(int *tab, char c, int *nb_char)
         function_alignement(nb, nb_char, tab[6]);
     if (tab[2] == 1)
         function_pos(nb, nb_char, ' ');
-=======
->>>>>>> d075685df2e83fb7de0a0429c55ebaf0e18e1d13
     if (tab[3] == 1)
         function_sharp(nb_char, tab[5]);
     if (tab[4] == 1)
