@@ -71,6 +71,7 @@ void function_pos(int *nb_char, char letter);
 void function_alignement(int *nb_char, int tab);
 int len_additionnal_uint(int *tab, int *nb_char, unsigned int nb);
 int len_additionnal_dbl(int *tab, int *nb_char, double nb);
+int my_intlen_u(unsigned int nb);
 
 typedef struct list
 {

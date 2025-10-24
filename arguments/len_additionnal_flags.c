@@ -4,6 +4,7 @@
 ** File description:
 ** calculate the number of spaces to add before the specifier
 */
+#include "../include/my.h"
 
 int my_hexalen(unsigned int nb)
 {

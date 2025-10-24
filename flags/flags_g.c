@@ -28,7 +28,7 @@ static void display_after(double nb, int *nb_char, int i)
         if (i == 5)
             nb = last_nb(nb);
         my_putchar((int) nb + '0');
-        *nb_char = *nb_char + 1;
+        *nb_char += 1;
         nb -= (int) nb;
         nb *= 10;
         i++;
@@ -37,14 +37,34 @@ static void display_after(double nb, int *nb_char, int i)
         if (i == 5)
             nb = last_nb(nb);
         my_putchar((int) nb + '0');
-        *nb_char = *nb_char + 1;
+        *nb_char += 1;
         nb -= (int) nb;
         nb *= 10;
         i++;
     }
 }
 
-static void display_eg(double nb, int *nb_char, char letter, char sign)
+static void display_after_e(double nb, int i)
+{
+    while ((int)nb == 0 && i < 6) {
+        if (i == 5)
+            nb = last_nb(nb);
+        my_putchar((int) nb + '0');
+        nb -= (int) nb;
+        nb *= 10;
+        i++;
+    }
+    while ((int)nb != 0 && i < 6) {
+        if (i == 5)
+            nb = last_nb(nb);
+        my_putchar((int) nb + '0');
+        nb -= (int) nb;
+        nb *= 10;
+        i++;
+    }
+}
+
+static void display_eg(double nb, char letter, char sign)
 {
     int exponent = 0;
 
@@ -60,7 +80,7 @@ static void display_eg(double nb, int *nb_char, char letter, char sign)
     my_put_nbr((int)nb);
     my_putchar('.');
     nb = (nb - (int)nb) * 10;
-    display_after(nb, nb_char, 1);
+    display_after_e(nb, 1);
     my_putchar(letter);
     my_putchar(sign);
     if (exponent < 10)
@@ -70,16 +90,16 @@ static void display_eg(double nb, int *nb_char, char letter, char sign)
 
 void flag_eg(double nb, int *nb_char, int letter)
 {
-    *nb_char = 11;
+    *nb_char += 11;
     if (nb < 0.0) {
         my_putchar('-');
         nb = nb * -1;
         *nb_char = *nb_char + 1;
     }
     if ((int)nb == 0)
-        display_eg(nb, nb_char, letter, '-');
+        display_eg(nb, letter, '-');
     else
-        display_eg(nb, nb_char, letter, '+');
+        display_eg(nb, letter, '+');
 }
 
 static void display_end(double nb, int i, int *nb_char)
