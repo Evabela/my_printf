@@ -26,6 +26,9 @@ int display_count(const char *format, va_list list, int *nb_char);
 void my_put_error(void);
 int my_printf(const char *format, ...);
 
+void correct_flags(int *tab);
+void correct_flags2(int *tab);
+
 void flag_x(va_list list, int *nb_char, int *tab);
 void flag_xu(va_list list, int *nb_char, int *tab);
 int int_to_hexa(unsigned int nb, char *ref);
