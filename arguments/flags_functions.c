@@ -4,7 +4,7 @@
 ** File description:
 ** initialize the flag functions
 */
-#include "./include/my.h"
+#include "../include/my.h"
 
 void function_spaces(char letter, int *nb_char, int len)
 {

@@ -5,7 +5,7 @@
 ** A function to correct conflicts between letters and their flags
 */
 
-#include "include/my.h"
+#include "../include/my.h"
 
 void correct_flags(int *tab)
 {

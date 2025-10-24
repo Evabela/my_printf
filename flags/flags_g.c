@@ -59,7 +59,7 @@ static void display_eg(double nb, int *nb_char, char letter, char sign)
     nb += 0.0000005;
     my_put_nbr((int)nb);
     my_putchar('.');
-    nb = nb - (int)nb;
+    nb = (nb - (int)nb) * 10;
     display_after(nb, nb_char, 1);
     my_putchar(letter);
     my_putchar(sign);
