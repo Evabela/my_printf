@@ -17,16 +17,18 @@ void put_args_in_tab(int *tab, char letter, int width, int precision)
 
 void find_number(int *i, const char *format, int *width, int *precision)
 {
-    if (format[*i] == '.' && *precision != 0){
+    if (format[*i] == '.' && *precision == 0){
         *i = *i + 1;
         while (format[*i] >= '0' && format[*i] <= '9'){
-            *precision = *precision * 10 + format[*i];
+            *precision *= 10;
+            *precision += format[*i] - '0';
             *i = *i + 1;
         }
     }
-    if (format[*i] >= '1' && format[*i] <= '9' && *width != 0) {
+    if (format[*i] >= '0' && format[*i] <= '9' && *width == 0) {
         while (format[*i] >= '0' && format[*i] <= '9'){
-            *width = *width * 10 + format[*i];
+            *width *= 10;
+            *width += format[*i] - '0';
             *i = *i + 1;
         }
     }
