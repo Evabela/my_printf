@@ -24,7 +24,7 @@ void flag_s(va_list list, int *nb_char, int *tab)
 
     str = va_arg(list, char *);
     redirect_flag_str(tab, str, nb_char);
-    if (str == "") {
+    if (str[0] == 0) {
         my_putstr("");
     } else {
         my_putstr(str);
