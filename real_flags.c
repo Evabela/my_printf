@@ -16,8 +16,6 @@ void redirect_flag_nb(int *tab, int nb, int *nb_char)
         function_alignement(nb_char, tab[6]);
     if (tab[2] == 1 && nb >= 0)
         function_pos(nb_char, ' ');
-    if (tab[3] == 1)
-        function_sharp(nb_char, tab[5]);
     if (tab[4] == 1)
         function_spaces('0', nb_char, tab[6] - my_intlen(nb));
     if (tab[6] > 0)
@@ -46,12 +44,8 @@ void redirect_flag_unb(int *tab, unsigned int nb, int *nb_char)
 {
     correct_flags(tab);
     correct_flags2(tab);
-    if (tab[0] == 1)
-        function_pos(nb_char, '+');
     if (tab[1] == 1)
         function_alignement(nb_char, tab[6]);
-    if (tab[2] == 1)
-        function_pos(nb_char, ' ');
     if (tab[3] == 1)
         function_sharp(nb_char, tab[5]);
     if (tab[4] == 1)
@@ -82,16 +76,8 @@ void redirect_flag_char(int *tab, char c, int *nb_char)
 {
     correct_flags(tab);
     correct_flags2(tab);
-    if (tab[0] == 1)
-        function_pos(nb_char, '+');
     if (tab[1] == 1)
-        function_alignement(nb_char, tab[6]);
-    if (tab[2] == 1)
-        function_pos(nb_char, ' ');
-    if (tab[3] == 1)
-        function_sharp(nb_char, tab[5]);
-    if (tab[4] == 1)
-        function_spaces('0', nb_char, tab[6] - 1);
+        function_alignement(nb, nb_char, tab[6]);
     if (tab[6] > 0)
         function_spaces(' ', nb_char, tab[6] - 1);
 }
