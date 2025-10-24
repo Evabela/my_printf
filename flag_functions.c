@@ -7,7 +7,7 @@
 
 #include "include/my.h"
 
-void function_pos(int *nb_char, char c)
+void function_pos(char c, int *nb_char)
 {
     my_putchar(c);
     *nb_char += 1;
