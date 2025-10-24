@@ -111,7 +111,7 @@ int my_floathexalen(double nb)
     }
     while (nb < 1 && nb != 0){
         nb *= 2;
-	--exp;
+        --exp;
     }
     nb_char += count_dbl_hexa(nb, exp, nb_char);
     return nb_char;
