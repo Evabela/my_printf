@@ -41,6 +41,10 @@ void flag_xu(va_list list, int *nb_char, int *tab)
     unsigned int nb = va_arg(list, unsigned int);
 
     redirect_flag_unb(tab, nb, nb_char);
+    if (nb == 0) {
+        my_putchar('0');
+        *nb_char = *nb_char + 1;
+    }
     int_to_hexa(nb, ref);
     while (nb != 0){
         nb = nb / 16;
