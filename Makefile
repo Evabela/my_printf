@@ -7,7 +7,7 @@
 
 SRC =	my_printf.c \
 	initialize.c \
-	flag_functions.c \
+	flags_functions.c \
 	real_flags.c \
 	correct_flags.c \
 	flags/flags_hexa.c \
@@ -44,7 +44,7 @@ fclean:	clean
 	rm -f unit_tests
 
 tests_run:
-	epiclang -o unit_tests --coverage -lcriterion -lgcov ./testsluk/*.c $(SRC)
+	epiclang -o unit_tests --coverage -lcriterion -lgcov ./tests/*.c $(SRC)
 	./unit_tests
 
 gcovrex:	tests_run
