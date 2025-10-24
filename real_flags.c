@@ -19,7 +19,7 @@ void redirect_flag_nb(int *tab, int nb, int *nb_char)
     if (tab[3] == 1)
         function_sharp(nb_char, tab[5]);
     if (tab[4] == 1)
-        function_spaces('0', tab[6], nb_char, ...);
+        function_spaces('0', tab[6], nb_char, ...); //idem ici
     if (tab[6] > 0)
         function_space(' ', tab[6], nb_char, ...);
 }
