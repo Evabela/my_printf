@@ -141,13 +141,13 @@ Test(myprintf, arg_space, .init = redirect_all_std)
     my_printf("hello world, % s, % d, % i, % e, % f, % u", "hello", 548, 548, 48.25, 258.357, 548);
     cr_assert_stdout_eq_str("hello world, hello,  548,  548,  4.825000e+01,  258.357000, 548");
 }
-/*
+
 Test(myprintf, arg_width, .init = redirect_all_std)
 {
     my_printf("hello world, %7s, %7d, %7i, %7e, %7f, %7u", "hello", 548, 548, 48.25, 258.357, 548);
     cr_assert_stdout_eq_str("hello world,   hello,     548,     548, 4.825000e+01, 258.357000,     548");
 }
-*/
+
 Test(myprintf, arg_zero, .init = redirect_all_std)
 {
     my_printf("hello world, %0s, %0d, %0i, %0e, %0f, %0u, %0g", "hello", 548, 548, 48.25, 258.357, 548, 258.357);
