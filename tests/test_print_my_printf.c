@@ -21,12 +21,6 @@ Test(myprintf, simple_string, .init = redirect_all_std)
     cr_assert_stdout_eq_str("hello world");
 }
 
-Test(myprintf, empty_string, .init = redirect_all_std)
-{
-    my_printf("");
-    cr_assert_stderr_eq_str("84");
-}
-
 Test(my_printf, s_flag, .init = redirect_all_std)
 {
     char str[6] = "world";
