@@ -25,7 +25,7 @@ int my_explen(double nb)
     return 0;
 }
 
-int len_additionnal_uint(int *tab, int *nb_char, double nb)
+int len_additionnal_dbl(int *tab, int *nb_char, double nb)
 {
     int res = tab[6];
     char letter = tab[5];
