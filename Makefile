@@ -10,6 +10,8 @@ SRC =	my_printf.c \
 	arguments/flags_functions.c \
 	arguments/real_flags.c \
 	arguments/correct_flags.c \
+	arguments/len_additionnal_flags_dbl.c \
+	arguments/len_additionnal_flags.c \
 	flags/flags_hexa.c \
 	flags/flags_ints.c \
 	flags/flags_e.c \
