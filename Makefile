@@ -34,7 +34,7 @@ $(NAME):	$(OBJ)
 	ar rc $(NAME) $(OBJ)
 
 clean:
-	rm -f *.o
+	rm -f $(OBJ)
 	rm -f *.gcno
 	rm -f *.gcda
 	rm -f '#*#'
